@@ -1,5 +1,5 @@
 build target:
-    nix build ".{{target}}"
+    nix build ".#{{target}}"
 
 check:
     nix flake check .
@@ -7,3 +7,6 @@ check:
 update:
     nix flake update
     nvfetcher -c nvfetcher.toml -o _sources
+
+push cachix target=("$(readlink result)"):
+    cachix push moraxyc {{target}}
