@@ -33,7 +33,7 @@ in
       };
       listenPort = lib.mkOption {
         type = lib.types.port;
-        default = "23366";
+        default = 23366;
         description = "Artalk listen port";
       };
       user = lib.mkOption {
@@ -67,15 +67,15 @@ in
       wantedBy = [ "multi-user.target" ];
       preStart = ''
         umask 0077
-        [ ! -e "${cfg.configFile}" ] && ${cfg.package}/bin/Artalk gen config ${cfg.configFile}
+        [ -e "${cfg.configFile}" ] || ${cfg.package}/bin/Artalk gen config "${cfg.configFile}"
       '';
       serviceConfig = {
         User = cfg.user;
         Group = cfg.group;
         Type = "simple";
-        ExecStart = "${cfg.package}/bin/Artalk server --config ${cfg.configFile} --workdir ${cfg.workdir} --host ${cfg.listenHost} --port ${cfg.listenPort}";
+        ExecStart = "${cfg.package}/bin/Artalk server --config ${cfg.configFile} --workdir ${cfg.workdir} --host ${cfg.listenHost} --port ${builtins.toString cfg.listenPort}";
         Restart = "on-failure";
-        RestartSec = "1s";
+        RestartSec = "5s";
         ConfigurationDirectory = [ "artalk" ];
         StateDirectory = [ "artalk" ];
         AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
