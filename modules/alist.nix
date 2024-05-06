@@ -411,7 +411,7 @@ in
     };
     users.groups.alist = lib.optionalAttrs (cfg.group == "alist") { };
 
-    systemd.packages = [ cfg.package ];
+    environment.systemPackages = [ cfg.package ];
 
     systemd.services.alist = {
       after = [ "network.target" ];
