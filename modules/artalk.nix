@@ -2,10 +2,12 @@
   config,
   lib,
   pkgs,
+  utils,
   ...
 }:
 let
   cfg = config.services.artalk;
+  settingsFormat = pkgs.formats.json { };
 in
 {
 
@@ -21,20 +23,15 @@ in
         default = "/etc/artalk/config.yml";
         description = "Artalk config file path. If it is not exist, Artalk will generate one.";
       };
+      allowModify = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "allow Artalk store the settings to config file persistently";
+      };
       workdir = lib.mkOption {
         type = lib.types.str;
         default = "/var/lib/artalk";
         description = "Artalk working directory";
-      };
-      listenHost = lib.mkOption {
-        type = lib.types.str;
-        default = "0.0.0.0";
-        description = "Artalk listen address";
-      };
-      listenPort = lib.mkOption {
-        type = lib.types.port;
-        default = 23366;
-        description = "Artalk listen port";
       };
       user = lib.mkOption {
         type = lib.types.str;
@@ -49,6 +46,37 @@ in
       };
 
       package = lib.mkPackageOption pkgs "artalk" { };
+      settings = lib.mkOption {
+        type = lib.types.submodule {
+          freeformType = settingsFormat.type;
+          options = {
+            host = lib.mkOption {
+              type = lib.types.str;
+              default = "0.0.0.0";
+              description = ''
+                Artalk server listen host
+              '';
+            };
+            port = lib.mkOption {
+              type = lib.types.port;
+              default = 23366;
+              description = ''
+                Artalk server listen port
+              '';
+            };
+          };
+        };
+        default = { };
+        description = ''
+          The artalk configuration.
+
+          If you set allowModify to true, Artalk will be able to store the settings in the config file persistently. This section's content will update in the config file after the service restarts.
+
+          Options containing secret data should be set to an attribute set
+          containing the attribute `_secret` - a string pointing to a file
+          containing the value the option should be set to.
+        '';
+      };
     };
   };
 
@@ -65,20 +93,38 @@ in
     systemd.services.artalk = {
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
-      preStart = ''
-        umask 0077
-        [ -e "${cfg.configFile}" ] || ${cfg.package}/bin/Artalk gen config "${cfg.configFile}"
-      '';
+      preStart =
+        ''
+          umask 0077
+          ${utils.genJqSecretsReplacementSnippet cfg.settings "/run/artalk/new"}
+        ''
+        + (
+          if cfg.allowModify then
+            ''
+              [ -e "${cfg.configFile}" ] || ${cfg.package}/bin/Artalk gen config "${cfg.configFile}"
+              cat "${cfg.configFile}" | ${pkgs.yj}/bin/yj > "/run/artalk/old"
+              ${pkgs.jq}/bin/jq -s '.[0] * .[1]' "/run/artalk/old" "/run/artalk/new" > "/run/artalk/result"
+              cat "/run/artalk/result" | ${pkgs.yj}/bin/yj -r > "${cfg.configFile}"
+              rm /run/artalk/{old,new,result}
+            ''
+          else
+            ''
+              cat /run/artalk/new | ${pkgs.yj}/bin/yj -r > "${cfg.configFile}"
+              rm /run/artalk/new
+            ''
+        );
       serviceConfig = {
         User = cfg.user;
         Group = cfg.group;
         Type = "simple";
-        ExecStart = "${cfg.package}/bin/Artalk server --config ${cfg.configFile} --workdir ${cfg.workdir} --host ${cfg.listenHost} --port ${builtins.toString cfg.listenPort}";
+        ExecStart = "${cfg.package}/bin/Artalk server --config ${cfg.configFile} --workdir ${cfg.workdir} --host ${cfg.settings.host} --port ${builtins.toString cfg.settings.port}";
         Restart = "on-failure";
         RestartSec = "5s";
         ConfigurationDirectory = [ "artalk" ];
         StateDirectory = [ "artalk" ];
+        RuntimeDirectory = [ "artalk" ];
         AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
+        ProtectHome = "yes";
       };
     };
   };
