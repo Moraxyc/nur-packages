@@ -47,6 +47,7 @@
           alist = import ./modules/alist.nix;
           cyrus-imap = import ./modules/cyrus-imap.nix;
           artalk = import ./modules/artalk.nix;
+          gost = import ./modules/gost.nix;
         };
       };
 
