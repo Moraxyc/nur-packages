@@ -241,35 +241,19 @@ in
             listen = "imap";
             prefork = 0;
           };
-          imaps = lib.mkIf (cfg.sslServerCert != null && cfg.sslServerKey != null) {
-            cmd = [
-              "imapd"
-              "-s"
-            ];
-            listen = "imaps";
-            prefork = 0;
-          };
           pop3 = {
             cmd = [ "pop3d" ];
             listen = "pop3";
             prefork = 0;
           };
-          pop3s = lib.mkIf (cfg.sslServerCert != null && cfg.sslServerKey != null) {
-            cmd = [
-              "pop3d"
-              "-s"
-            ];
-            listen = "pop3s";
-            prefork = 0;
-          };
           lmtpunix = {
             cmd = [ "lmtpd" ];
-            listen = "${cfg.imapdSettings.lmtpsocket}";
+            listen = "/run/cyrus/lmtp";
             prefork = 0;
           };
           notify = {
             cmd = [ "notifyd" ];
-            listen = "${cfg.imapdSettings.notifysocket}";
+            listen = "/run/cyrus/notify";
             proto = "udp";
             prefork = 0;
           };
@@ -345,7 +329,7 @@ in
         options = {
           admins = mkOption {
             type = listOf str;
-            default = [ "${cfg.user}" ];
+            default = [ "cyrus" ];
             description = ''
               The list or string of userids with administrative rights.
               Note that accounts used by users should not be administrators. Administrative accounts should not receive mail. That is, if user "jbRo" is a user reading mail, he should not also be in the admins line. Some problems may occur otherwise, most notably the ability of administrators to create top-level mailboxes visible to users, but not writable by users.
@@ -367,28 +351,28 @@ in
           };
           tls_sessions_db_path = mkOption {
             type = path;
-            default = "${cfg.tmpDBDir}/tls_sessions.db";
+            default = "/run/cyrus/db/tls_sessions.db";
             description = ''
               The absolute path to the TLS sessions db file.
             '';
           };
           statuscache_db_path = mkOption {
             type = path;
-            default = "${cfg.tmpDBDir}/statuscache.db";
+            default = "/run/cyrus/db/statuscache.db";
             description = ''
               The absolute path to the statuscache db file.
             '';
           };
           ptscache_db_path = mkOption {
             type = path;
-            default = "${cfg.tmpDBDir}/ptscache.db";
+            default = "/run/cyrus/db/ptscache.db";
             description = ''
               The absolute path to the ptscache db file.
             '';
           };
           duplicate_db_path = mkOption {
             type = path;
-            default = "${cfg.tmpDBDir}/deliver.db";
+            default = "/run/cyrus/db/deliver.db";
             description = ''
               The absolute path to the duplicate db file.
             '';

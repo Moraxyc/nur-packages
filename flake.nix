@@ -45,7 +45,7 @@
             };
           openssl-oqs-provider = import ./modules/openssl-oqs-provider.nix;
           alist = import ./modules/alist.nix;
-          cyrus = import ./modules/cyrus.nix;
+          cyrus-imap = import ./modules/cyrus-imap.nix;
           artalk = import ./modules/artalk.nix;
         };
       };
