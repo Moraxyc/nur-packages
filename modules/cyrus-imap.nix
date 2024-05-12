@@ -37,27 +37,22 @@ let
       options = {
         cmd = mkOption {
           type = listOf str;
-          description = "The command (with options) to spawn as a child process. This string argument is required.";
+          description = "Command (with arguments) to spawn as a child process.";
           example = literalExpression ''
-            ["imapd" "-s"]
+            [ "imapd" "-s" ]
           '';
         };
         babysit = mkOption {
           type = nullOr int;
           default = null;
-          description = "Integer value - if non-zero, will make sure at least one process is pre-forked, and will set the maxforkrate to 10 if it's zero.";
+          description = "If this is non-zero, at least one process will always be pre-forked. Otherwise, the max fork rate will be set to 10.";
           example = 0;
         };
         listen = mkOption {
           type = nullOr str;
           default = null;
           description = ''
-            The UNIX or internet socket to listen on. This string field is required and takes one of the following forms:
-            path
-            [ host : ] port
-            where path is the explicit path to a UNIX socket, host is either the hostname or bracket-enclosed IP address of a network interface, and port is either a port number or service name (as listed in /etc/services).
-            If host is missing, 0.0.0.0 (all interfaces) is assumed. Use localhost or 127.0.0.1 to restrict access, i.e. when a proxy on the same host is front-ending Cyrus.
-            Note that on most systems UNIX socket paths are limited to around 100 characters. See your system documentation for specifics.
+            The address or socket path to listen on.
           '';
           example = "/run/cyrus/lmtp";
         };
@@ -72,10 +67,13 @@ let
           ]);
           default = null;
           description = ''
-            The protocol used for this service (tcp, tcp4, tcp6, udp, udp4, udp6). This string argument is optional.
-            tcp4, udp4: These arguments are used to bind the service to IPv4 only.
-            tcp6, udp6: These arguments are used to bind the service to IPv6 only, if the operating system supports this.
-            tcp, udp: These arguments are used to bind to both IPv4 and IPv6 if possible.
+            Protocol used for Cyrus.
+            - `tcp`: Attempt to use TCP with both IPv4 and IPv6 if possible.
+            - `udp`: Attempt to use UDP with both IPv4 and IPv6 if possible.
+            - `tcp4`: Similar to `tcp` but only uses IPv4.
+            - `tcp6`: Similar to `tcp` but only uses IPv6.
+            - `udp4`: Similar to `udp` but only uses IPv4.
+            - `udp6`: Similar to `udp` but only uses IPv6.
           '';
           example = "tcp";
         };
@@ -83,8 +81,8 @@ let
           type = nullOr int;
           default = null;
           description = ''
-            The number of instances of this service to always have running and waiting for a connection (for faster initial response time).
-            This integer value is optional. Note that if you are listening on multiple network types (i.e. ipv4 and ipv6) then one process will be forked for each address, causing twice as many processes as you might expect.
+            Amount of instances to always have running and waiting for a connection. This can be used to achieve, for example, faster initial response time.
+            If you are listening on multiple network types (i.e. IPv4/IPv6) then a process will be forked for each address, creating twice as many processes as you might expect.
           '';
           example = 0;
         };
@@ -92,7 +90,7 @@ let
           type = nullOr int;
           default = null;
           description = ''
-            The maximum number of instances of this service to spawn. A value of -1 means unlimited. This integer value is optional.
+            Maximum amount of instances to spawn. A value of -1 means unlimited.
           '';
           example = -1;
         };
@@ -100,7 +98,7 @@ let
           type = nullOr int;
           default = null;
           description = ''
-            The maximum number of file descriptors to which to limit this process. This integer value is optional.
+            Maximum number of file descriptors to limit Cyrus to.
           '';
           example = 256;
         };
@@ -108,7 +106,7 @@ let
           type = nullOr int;
           default = null;
           description = ''
-            Maximum number of processes to fork per second - the master will insert sleeps to ensure it doesn't fork faster than this on average.
+            Maximum number of processes to fork per second; the master will ensure it doesn't fork faster than this.
           '';
           example = 0;
         };
@@ -116,7 +114,7 @@ let
           type = nullOr int;
           default = null;
           description = ''
-            The interval (in minutes) at which to run the command. This integer value is optional, but SHOULD be a positive integer > 10.
+            The interval (in minutes) at which to run the command defined in . This integer value is optional, but SHOULD be a positive integer > 10.
           '';
           example = 0;
         };
@@ -219,104 +217,109 @@ in
         DBs under this directory are recreated upon initialization, so should live in ephemeral storage for best performance.
       '';
     };
-    cyrusSettings = {
-      START = mkOption {
-        default = {
-          recover = {
-            cmd = [
-              "ctl_cyrusdb"
-              "-r"
-            ];
+    cyrusSettings = mkOption {
+      type = submodule {
+        options = {
+          START = mkOption {
+            default = {
+              recover = {
+                cmd = [
+                  "ctl_cyrusdb"
+                  "-r"
+                ];
+              };
+            };
+            type = attrsOf (submodule cyrusOptions);
+            description = ''
+              This section lists the processes to run before any SERVICES are spawned. This section is typically used to initialize databases. Master itself will not startup until all tasks in START have completed, so put no blocking commands here.
+            '';
+          };
+          SERVICES = mkOption {
+            default = {
+              imap = {
+                cmd = [ "imapd" ];
+                listen = "imap";
+                prefork = 0;
+              };
+              pop3 = {
+                cmd = [ "pop3d" ];
+                listen = "pop3";
+                prefork = 0;
+              };
+              lmtpunix = {
+                cmd = [ "lmtpd" ];
+                listen = "/run/cyrus/lmtp";
+                prefork = 0;
+              };
+              notify = {
+                cmd = [ "notifyd" ];
+                listen = "/run/cyrus/notify";
+                proto = "udp";
+                prefork = 0;
+              };
+            };
+            type = attrsOf (submodule cyrusOptions);
+            description = ''
+              This section is the heart of the cyrus.conf file. It lists the processes that should be spawned to handle client connections made on certain Internet/UNIX sockets.
+            '';
+          };
+          EVENTS = mkOption {
+            default = {
+              tlsprune = {
+                cmd = [ "tls_prune" ];
+                at = 400;
+              };
+              delprune = {
+                cmd = [
+                  "cyr_expire"
+                  "-E"
+                  "3"
+                ];
+                at = 400;
+              };
+              deleteprune = {
+                cmd = [
+                  "cyr_expire"
+                  "-E"
+                  "4"
+                  "-D"
+                  "28"
+                ];
+                at = 430;
+              };
+              expungeprune = {
+                cmd = [
+                  "cyr_expire"
+                  "-E"
+                  "4"
+                  "-X"
+                  "28"
+                ];
+                at = 445;
+              };
+              checkpoint = {
+                cmd = [
+                  "ctl_cyrusdb"
+                  "-c"
+                ];
+                period = 30;
+              };
+            };
+            type = attrsOf (submodule cyrusOptions);
+            description = ''
+              This section lists processes that should be run at specific intervals, similar to cron jobs. This section is typically used to perform scheduled cleanup/maintenance.
+            '';
+          };
+          DAEMON = mkOption {
+            default = { };
+            type = attrsOf (submodule cyrusOptions);
+            description = ''
+              This section lists long running daemons to start before any SERVICES are spawned. master(8) will ensure that these processes are running, restarting any process which dies or forks. All listed processes will be shutdown when master(8) is exiting.
+            '';
           };
         };
-        type = attrsOf (submodule cyrusOptions);
-        description = ''
-          This section lists the processes to run before any SERVICES are spawned. This section is typically used to initialize databases. Master itself will not startup until all tasks in START have completed, so put no blocking commands here.
-        '';
       };
-      SERVICES = mkOption {
-        default = {
-          imap = {
-            cmd = [ "imapd" ];
-            listen = "imap";
-            prefork = 0;
-          };
-          pop3 = {
-            cmd = [ "pop3d" ];
-            listen = "pop3";
-            prefork = 0;
-          };
-          lmtpunix = {
-            cmd = [ "lmtpd" ];
-            listen = "/run/cyrus/lmtp";
-            prefork = 0;
-          };
-          notify = {
-            cmd = [ "notifyd" ];
-            listen = "/run/cyrus/notify";
-            proto = "udp";
-            prefork = 0;
-          };
-        };
-        type = attrsOf (submodule cyrusOptions);
-        description = ''
-          This section is the heart of the cyrus.conf file. It lists the processes that should be spawned to handle client connections made on certain Internet/UNIX sockets.
-        '';
-      };
-      EVENTS = mkOption {
-        default = {
-          tlsprune = {
-            cmd = [ "tls_prune" ];
-            at = 400;
-          };
-          delprune = {
-            cmd = [
-              "cyr_expire"
-              "-E"
-              "3"
-            ];
-            at = 400;
-          };
-          deleteprune = {
-            cmd = [
-              "cyr_expire"
-              "-E"
-              "4"
-              "-D"
-              "28"
-            ];
-            at = 430;
-          };
-          expungeprune = {
-            cmd = [
-              "cyr_expire"
-              "-E"
-              "4"
-              "-X"
-              "28"
-            ];
-            at = 445;
-          };
-          checkpoint = {
-            cmd = [
-              "ctl_cyrusdb"
-              "-c"
-            ];
-            period = 30;
-          };
-        };
-        type = attrsOf (submodule cyrusOptions);
-        description = ''
-          This section lists processes that should be run at specific intervals, similar to cron jobs. This section is typically used to perform scheduled cleanup/maintenance.
-        '';
-      };
-      DAEMON = mkOption {
-        default = { };
-        type = attrsOf (submodule cyrusOptions);
-        description = ''
-          This section lists long running daemons to start before any SERVICES are spawned. master(8) will ensure that these processes are running, restarting any process which dies or forks. All listed processes will be shutdown when master(8) is exiting.
-        '';
-      };
+      description = "Cyrus configuration settings. [cyrus.conf(5)](https://www.cyrusimap.org/imap/reference/manpages/configs/cyrus.conf.html)";
     };
     imapdSettings = mkOption {
       type = submodule {
@@ -498,7 +501,7 @@ in
         };
       };
       default = { };
-      description = "IMAP configuration settings. imapd.conf(5)";
+      description = "IMAP configuration settings. [imapd.conf(5)](https://www.cyrusimap.org/imap/reference/manpages/configs/imapd.conf.html)";
     };
 
     user = mkOption {
