@@ -9,6 +9,7 @@ let
   cyrus-imapdPkg = pkgs.cyrus-imapd;
   inherit (lib)
     literalExpression
+    pipe
     mkEnableOption
     mkIf
     mkOption
@@ -33,40 +34,43 @@ let
 
   mkCyrusConfig =
     settings:
-    concatStringsSep "\n  " (
-      mapAttrsToList (n: v: v) (
-        builtins.mapAttrs (
-          name: value:
-          concatStringsSep " " (
-            [ "${name}" ]
-            ++ (mapAttrsToList (
-              n: v:
-              if (v != null) then
-                if builtins.isInt v then
-                  "${n}=${builtins.toString v}"
-                else
-                  "${n}=\"${if builtins.isList v then (concatStringsSep " " v) else v}\""
-              else
-                ""
-            ) value)
-          )
-        ) settings
-      )
-    );
-  cyrusConfig = ''
-    START {
-      ${mkCyrusConfig cfg.cyrusSettings.START}
-    }
-    SERVICES {
-      ${mkCyrusConfig cfg.cyrusSettings.SERVICES}
-    }
-    EVENTS {
-      ${mkCyrusConfig cfg.cyrusSettings.EVENTS}
-    }
-    DAEMON {
-      ${mkCyrusConfig cfg.cyrusSettings.DAEMON}
-    }
-  '';
+    let
+      mkCyrusList =
+        v:
+        mapAttrsToList (
+          p: q:
+          if (q != null) then
+            if builtins.isInt q then
+              "${p}=${builtins.toString q}"
+            else
+              "${p}=\"${if builtins.isList q then (concatStringsSep " " q) else q}\""
+          else
+            ""
+        ) v;
+      mkCyrusOptionsString = v: concatStringsSep " " (mkCyrusList v);
+    in
+    concatStringsSep "\n  " (mapAttrsToList (n: v: n + " " + (mkCyrusOptionsString v)) settings);
+  cyrusConfig = lib.concatStringsSep "\n" (
+    lib.mapAttrsToList (n: v: ''
+      ${n} {
+        ${mkCyrusConfig v}
+      }
+    '') cfg.cyrusSettings
+  );
+  # cyrusConfig = ''
+  #   START {
+  #     ${mkCyrusConfig cfg.cyrusSettings.START}
+  #   }
+  #   SERVICES {
+  #     ${mkCyrusConfig cfg.cyrusSettings.SERVICES}
+  #   }
+  #   EVENTS {
+  #     ${mkCyrusConfig cfg.cyrusSettings.EVENTS}
+  #   }
+  #   DAEMON {
+  #     ${mkCyrusConfig cfg.cyrusSettings.DAEMON}
+  #   }
+  # '';
 
   imapdConfig =
     with generators;
@@ -81,28 +85,27 @@ let
           else
             mkValueStringDefault { } v;
       } ": ";
-      listsAsDuplicateKeys = false;
     } cfg.imapdSettings;
 in
 {
   options.services.cyrus-imap = {
-    enable = mkEnableOption ("Cyrus IMAP, an email, contacts and calendar server");
+    enable = mkEnableOption "Cyrus IMAP, an email, contacts and calendar server";
+    debug = mkEnableOption "debugging messages for the Cyrus master process";
 
-    debug = mkEnableOption ("enable debugging on cyrus master");
     listenQueue = mkOption {
       type = int;
       default = 32;
       description = ''
-        Socket listen queue backlog size
-        See listen(2). Default is 32, you may want to increase this number if you have a very high connection rate
+        Socket listen queue backlog size. See listen(2) for more information about a backlog.
+        Default is 32, which may be increased if you have a very high connection rate.
       '';
     };
     tmpDBDir = mkOption {
       type = path;
       default = "/run/cyrus/db";
       description = ''
-        Locations for DB files.
-        DBs under this directory are recreated upon initialization, so should live in ephemeral storage for best performance.
+        Location where DB files are stored.
+        Databases in this directory are recreated upon startup, so ideally they should live in ephemeral storage for best performance.
       '';
     };
     cyrusSettings = mkOption {
@@ -203,7 +206,7 @@ in
           };
         };
       };
-      description = "Cyrus configuration settings. [cyrus.conf(5)](https://www.cyrusimap.org/imap/reference/manpages/configs/cyrus.conf.html)";
+      description = "Cyrus configuration settings. See [cyrus.conf(5)](https://www.cyrusimap.org/imap/reference/manpages/configs/cyrus.conf.html)";
     };
     imapdSettings = mkOption {
       type = submodule {
@@ -218,7 +221,7 @@ in
             type = path;
             default = "/var/lib/cyrus";
             description = ''
-              The pathname of the IMAP configuration directory. This field is required.
+              The pathname of the IMAP configuration directory.
             '';
           };
           lmtpsocket = mkOption {
@@ -270,7 +273,7 @@ in
         tls_sessions_db_path = "/run/cyrus/db/tls_sessions.db";
         virtdomains = "on";
       };
-      description = "IMAP configuration settings. [imapd.conf(5)](https://www.cyrusimap.org/imap/reference/manpages/configs/imapd.conf.html)";
+      description = "IMAP configuration settings. See [imapd.conf(5)](https://www.cyrusimap.org/imap/reference/manpages/configs/imapd.conf.html)";
     };
 
     user = mkOption {
@@ -288,27 +291,27 @@ in
     imapdConfigFile = mkOption {
       type = nullOr path;
       default = null;
-      description = "Config file used for the whole cyrus-imap configuration.";
+      description = "Path to the configuration file used for cyrus-imap.";
       apply = v: if v != null then v else pkgs.writeText "imapd.conf" imapdConfig;
     };
 
     cyrusConfigFile = mkOption {
       type = nullOr path;
       default = null;
-      description = "Config file used for the whole cyrus-imap configuration.";
+      description = "Path to the configuration file used for Cyrus.";
       apply = v: if v != null then v else pkgs.writeText "cyrus.conf" cyrusConfig;
     };
 
     sslCACert = mkOption {
       type = nullOr str;
       default = null;
-      description = "File containing one or more Certificate Authority (CA) certificates.";
+      description = "File path which containing one or more CA certificates to use.";
     };
 
     sslServerCert = mkOption {
       type = nullOr str;
       default = null;
-      description = "File containing the global certificate used for ALL services (imap, pop3, lmtp, sieve)";
+      description = "File containing the global certificate used for all services (IMAP, POP3, LMTP, Sieve)";
     };
 
     sslServerKey = mkOption {
@@ -336,20 +339,20 @@ in
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       restartTriggers = [
-        cfg.cyrusConfigFile
-        cfg.imapdConfigFile
+        "/etc/imapd.conf"
+        "/etc/cyrus.conf"
       ];
 
-      startLimitIntervalSec = 60; # 1 min
+      startLimitIntervalSec = 60;
       environment = {
         CYRUS_VERBOSE = mkIf cfg.debug "1";
-        LISTENQUEUE = "${builtins.toString cfg.listenQueue}";
+        LISTENQUEUE = builtins.toString cfg.listenQueue;
       };
       serviceConfig = {
         User = cfg.user;
         Group = cfg.group;
         Type = "simple";
-        ExecStart = "${cyrus-imapdPkg}/libexec/master -l $LISTENQUEUE -C ${cfg.imapdConfigFile} -M ${cfg.cyrusConfigFile} -p /run/cyrus/master.pid -D";
+        ExecStart = "${cyrus-imapdPkg}/libexec/master -l $LISTENQUEUE -C /etc/imapd.conf -M /etc/cyrus.conf -p /run/cyrus/master.pid -D";
         Restart = "on-failure";
         RestartSec = "1s";
         RuntimeDirectory = [ "cyrus" ];
@@ -358,7 +361,7 @@ in
         AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
       };
       preStart = ''
-        mkdir -p '${cfg.imapdSettings.configdirectory}/socket' '${cfg.tmpDBDir}' '/run/cyrus/proc' '/run/cyrus/lock'
+        mkdir -p '${cfg.imapdSettings.configdirectory}/socket' '${cfg.tmpDBDir}' /run/cyrus/proc /run/cyrus/lock
       '';
     };
     environment.systemPackages = [ cyrus-imapdPkg ];
