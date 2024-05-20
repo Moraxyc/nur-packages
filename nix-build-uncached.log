@@ -1,13 +1,19 @@
 $ nix --version
 $ nix-build --dry-run ci.nix -A x86_64-linux --show-trace
-these 37 paths will be fetched (76.25 MiB download, 267.74 MiB unpacked):
+these 45 paths will be fetched (79.43 MiB download, 280.83 MiB unpacked):
+  /nix/store/y4psv76i8pllhnsd1dg7zbqsj8a2sz64-acl-2.3.2
   /nix/store/wpzrirq427h5w43d9scdw43b7i37gspy-alist-3.34.0
   /nix/store/k909ndg04bk5xxq7iyj8bp8qpkdq3gqd-artalk-2.8.5
+  /nix/store/yb39i0a63bx8kx2bgmx1p4dx1hcwmnzh-attr-2.5.2
   /nix/store/qa2j4ql5vb7n1zyi8ai5acivsjkg0l8m-brotli-1.1.0-lib
+  /nix/store/ddypgcb25zgi0gwvklxlzazjrh9s63dg-coreutils-9.5
   /nix/store/m60paca4ip17lh5kv8k6d6mbv4qr1jl2-cyrus-imapd-3.8.2
   /nix/store/4mlz8w1m4420s89sy1rg6d997mbkznsb-cyrus-sasl-2.1.28
   /nix/store/qkpxz2s5aq6lly1lbmaa2ggwmnlslwna-db-5.3.28
+  /nix/store/p3ffjixpnfgkqh20nsrc13vrj3yfi0nj-gcc-13.2.0-lib
+  /nix/store/k927dryij6k8ga8slxs39pjdsmsny8c8-gcc-13.2.0-libgcc
   /nix/store/bcms6vbac6jyffwyj8y630brpy1il4ks-glib-2.80.0
+  /nix/store/5gzyfqc5vzm4gyijkyxw8bl8i91zfk77-gmp-with-cxx-6.3.0
   /nix/store/rkj3k7pflfvjf7shraqvb1qd9s2dz1zs-gmp-with-cxx-6.3.0
   /nix/store/xl383m7n8wvpvm6qw4nikk8qfl8zgr6f-iana-etc-20240318
   /nix/store/hxfhcs6sdqang5qgzrjhhhq6qwdd7vql-icu4c-73.2
@@ -28,6 +34,7 @@ these 37 paths will be fetched (76.25 MiB download, 267.74 MiB unpacked):
   /nix/store/8f10pxi30lvkdjrkzfw5gzz4rzia8163-openssl-3.0.13
   /nix/store/pmg30939m4ymrqy83fzyzrlhnzd69dl4-openssl-3.0.13-bin
   /nix/store/0bp9inq3wd4car25n60idlfics6fajjv-openssl-3.0.13-dev
+  /nix/store/sik7a8dic5lxhm4cp9npibk97x9jcxwf-pcre2-10.43
   /nix/store/fngs03y9m8zh8vfk69ra8qdvaql07hgd-perl-5.38.2
   /nix/store/83mx6m4s1ndqzlb8ws1x23ihldm9xdy0-popt-1.19
   /nix/store/rjs8igsmhiwphgs97spas8sdq19x9lmk-rsync-3.3.0
@@ -37,5 +44,6 @@ these 37 paths will be fetched (76.25 MiB download, 267.74 MiB unpacked):
   /nix/store/z8lpawc54zgm7fwzvdv4fm28gkq6vz8g-wslay-1.1.1
   /nix/store/2zna3wb0sd0rx6xqjmihaqy1wjzczzyb-xapian-1.4.25
   /nix/store/5k76sb6m718hw1xvmywymxgl05gg5wrm-xxHash-0.8.2
+  /nix/store/nw1bnjadmzk9hnd4nbvxmqlh074vr16j-zlib-1.3.1
   /nix/store/7mnvfrpsbivkxyfbmqczdq5pbb1n59j1-zstd-1.5.6
 
