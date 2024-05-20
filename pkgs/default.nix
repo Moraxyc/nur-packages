@@ -52,6 +52,5 @@ mkScope (
   {
     cyrus-imapd = pkg ./cyrus-imapd { };
     alist = pkg ./alist { };
-    artalk = pkg ./artalk { };
   }
 )
