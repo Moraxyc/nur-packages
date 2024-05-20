@@ -1,9 +1,8 @@
 $ nix --version
 $ nix-build --dry-run ci.nix -A x86_64-linux --show-trace
-these 45 paths will be fetched (79.43 MiB download, 280.83 MiB unpacked):
+these 44 paths will be fetched (64.05 MiB download, 237.84 MiB unpacked):
   /nix/store/y4psv76i8pllhnsd1dg7zbqsj8a2sz64-acl-2.3.2
   /nix/store/wpzrirq427h5w43d9scdw43b7i37gspy-alist-3.34.0
-  /nix/store/k909ndg04bk5xxq7iyj8bp8qpkdq3gqd-artalk-2.8.5
   /nix/store/yb39i0a63bx8kx2bgmx1p4dx1hcwmnzh-attr-2.5.2
   /nix/store/qa2j4ql5vb7n1zyi8ai5acivsjkg0l8m-brotli-1.1.0-lib
   /nix/store/ddypgcb25zgi0gwvklxlzazjrh9s63dg-coreutils-9.5
