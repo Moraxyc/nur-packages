@@ -1,8 +1,11 @@
 $ nix --version
 $ nix-build --dry-run ci.nix -A x86_64-linux --show-trace
-these 4 paths will be fetched (41.39 MiB download, 112.39 MiB unpacked):
-  /nix/store/3zm6dgln5a9ff4x1v43nr15gs2kf8hac-alist-3.35.0
-  /nix/store/yg8fzf6vfkihfrzlrak1my4n1b4zdv6g-exloli-next-0.4.0-unstable-2024-9-9
-  /nix/store/rf0fghzwlqjz4hinr5vqsx2clpc1p9w5-iana-etc-20240318
-  /nix/store/h65rq26y400y22027m4gaymz9bwfz2v9-mailcap-2.1.54
+these 7 paths will be fetched (45.38 MiB download, 128.97 MiB unpacked):
+  /nix/store/3x46d85sqfg2h8idwzc5v7cwi8amdadw-alist-3.35.0
+  /nix/store/wmkzr32ff8vkf9ljiffl518y65ar7jm3-exloli-next-0.4.0-unstable-2024-9-9
+  /nix/store/s94fwp43xhzkvw8l8nqslskib99yifzi-gcc-13.3.0-lib
+  /nix/store/c91k93z9yr1cpia2pf5dr226imglrkg5-gcc-13.3.0-libgcc
+  /nix/store/b5z9n883bkq4ibabdlkhjdr3a81mpnfk-iana-etc-20240318
+  /nix/store/fj4kfzzrb0jjc2z96kcklas807r92qhg-mailcap-2.1.54
+  /nix/store/m8gwqmn8k3jm0gbcia358mz4y00lgmbc-openssl-3.3.2
 
