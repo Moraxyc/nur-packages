@@ -1,7 +1,7 @@
 $ nix --version
 $ nix-build --dry-run ci.nix -A x86_64-linux --show-trace
-these 7 paths will be fetched (45.38 MiB download, 128.97 MiB unpacked):
-  /nix/store/3x46d85sqfg2h8idwzc5v7cwi8amdadw-alist-3.35.0
+these 7 paths will be fetched (47.11 MiB download, 135.05 MiB unpacked):
+  /nix/store/s7351a93xkdbqzrz6hbz5i2bgh87mwhg-alist-3.38.0
   /nix/store/wmkzr32ff8vkf9ljiffl518y65ar7jm3-exloli-next-0.4.0-unstable-2024-9-9
   /nix/store/s94fwp43xhzkvw8l8nqslskib99yifzi-gcc-13.3.0-lib
   /nix/store/c91k93z9yr1cpia2pf5dr226imglrkg5-gcc-13.3.0-libgcc
