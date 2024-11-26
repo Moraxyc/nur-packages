@@ -8,8 +8,9 @@ on:
     - cron: "35 3 * * *"
   workflow_dispatch:
 jobs:
-  tests:
+  build:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - label: x86_64-linux
@@ -17,10 +18,10 @@ jobs:
           - label: aarch64-darwin
             image: macos-latest
             system: aarch64-darwin
-        cachixName:
-          - moraxyc
     name: ${{ matrix.label }}
     runs-on: ${{ matrix.image }}
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,7 +34,7 @@ jobs:
       - name: Setup cachix
         uses: cachix/cachix-action@v15
         with:
-          name: ${{ matrix.cachixName }}
+          name: moraxyc
           signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Check evaluation
