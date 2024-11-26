@@ -29,8 +29,8 @@ jobs:
         uses: cachix/install-nix-action@v30
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - name: Show nixpkgs version
-        run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+      # - name: Show nixpkgs version
+      #   run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
       - name: Setup cachix
         uses: cachix/cachix-action@v15
         with:
@@ -39,7 +39,7 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Check evaluation
         run: |
-          nix flake show --json
+          nix flake show
       - name: Build nix packages
         run: nix shell nixpkgs#nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs --show-trace
       # - name: Trigger NUR update

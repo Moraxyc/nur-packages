@@ -1,13 +1,13 @@
 {
-  pkgs,
-  inputs',
-  system,
+  pkgs ? import <nixpkgs> { },
+  inputs' ? null,
+  system ? builtins.currentSystem,
   ...
 }:
 
 {
   exloli-next = pkgs.callPackage ./exloli-next { };
-  colmena = inputs'.colmena.packages.colmena.overrideAttrs (
+  colmena = (inputs'.colmena.packages.colmena or pkgs.colmena).overrideAttrs (
     finalAttrs: previousAttrs: {
       preBuild =
         previousAttrs.preBuild
