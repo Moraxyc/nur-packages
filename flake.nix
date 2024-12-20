@@ -16,6 +16,7 @@
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ ./flake-modules/commands.nix ];
       systems = [
         "x86_64-linux"
         "aarch64-linux"
