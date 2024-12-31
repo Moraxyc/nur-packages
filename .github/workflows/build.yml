@@ -15,6 +15,9 @@ jobs:
         include:
           - label: x86_64-linux
             image: ubuntu-latest
+          - label: aarch64-linux
+            image: ubuntu-latest
+            system: aarch64-linux
           - label: aarch64-darwin
             image: macos-latest
             system: aarch64-darwin
