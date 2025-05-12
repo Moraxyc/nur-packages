@@ -44,7 +44,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: |
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
-            substituters = https://cache.nixos.org/ https://cache.garnix.io
+            substituters = https://cache.nixos.org/ https://cache.garnix.io https://moraxyc.cachix.org
       # - name: Show nixpkgs version
       #   run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
       - name: Setup cachix
@@ -57,7 +57,7 @@ jobs:
         run: |
           nix flake show
       - name: Build nix packages
-        run: nix shell nixpkgs#nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs --show-trace
+        run: nix shell nixpkgs#nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs --show-trace --system ${{ matrix.label }}
       # - name: Trigger NUR update
       #   # Don't replace <YOUR_REPO_NAME> here!
       #   if: ${{ matrix.nurRepo != '<YOUR_REPO_NAME>' }}
