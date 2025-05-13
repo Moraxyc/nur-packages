@@ -16,13 +16,13 @@ let
   call-stable = p: pkgs.lib.callPackageWith (pkgs-stable // { inherit sources; }) p { };
 in
 {
-  howdy = call-cuda ./howdy;
-  linux-enable-ir-emitter = call-cuda ./linux-enable-ir-emitter;
-
   # Cache
   nvfetcher = inputs'.nvfetcher.packages.default;
 
-  self = lib.mapAttrs' (
-    dir: _: lib.nameValuePair dir (pkgs.callPackage ./self/${dir}/package.nix { inherit sources; })
-  ) (builtins.readDir ./self);
+  self-howdy = call-cuda ./by-name/ho/howdy/package.nix;
+  self-linux-enable-ir-emitter = call-cuda ./by-name/li/linux-enable-ir-emitter/package.nix;
 }
+// (lib.mapAttrs' (
+  dir: _:
+  lib.nameValuePair "self-${dir}" (pkgs.callPackage ./self/${dir}/package.nix { inherit sources; })
+) (builtins.readDir ./self))
