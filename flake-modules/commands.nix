@@ -2,9 +2,7 @@ _: {
   perSystem =
     {
       pkgs,
-      lib,
-      config,
-      inputs',
+      self',
       ...
     }:
     let
@@ -12,7 +10,7 @@ _: {
         set -euo pipefail
         KEY_FLAG=""
         [ -f "secrets.toml" ] && KEY_FLAG="$KEY_FLAG -k secrets.toml"
-        ${inputs'.nvfetcher.packages.default}/bin/nvfetcher $KEY_FLAG --keep-going -c nvfetcher.toml -o _sources "$@"
+        ${self'.packages.nvfetcher}/bin/nvfetcher $KEY_FLAG --keep-going -c nvfetcher.toml -o _sources "$@"
       '';
     in
     {

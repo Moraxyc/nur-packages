@@ -4,6 +4,7 @@
   pkgs-cuda ? pkgs,
   sources ? pkgs.callPackage ../_sources/generated.nix { },
   inputs' ? null,
+  inputs ? null,
   system ? builtins.currentSystem,
   ...
 }:
@@ -16,4 +17,7 @@ in
 {
   howdy = call-cuda ./howdy;
   linux-enable-ir-emitter = call-cuda ./linux-enable-ir-emitter;
+
+  # Cache
+  nvfetcher = inputs'.nvfetcher.packages.default;
 }

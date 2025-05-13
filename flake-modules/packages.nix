@@ -45,6 +45,7 @@
         (import ../pkgs/default.nix {
           inherit
             inputs'
+            inputs
             system
             self'
             sources
