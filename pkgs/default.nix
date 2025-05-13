@@ -1,5 +1,6 @@
 {
   pkgs ? import <nixpkgs> { },
+  lib ? pkgs.lib,
   pkgs-stable ? pkgs,
   pkgs-cuda ? pkgs,
   sources ? pkgs.callPackage ../_sources/generated.nix { },
@@ -20,4 +21,8 @@ in
 
   # Cache
   nvfetcher = inputs'.nvfetcher.packages.default;
+
+  self = lib.mapAttrs' (
+    dir: _: lib.nameValuePair dir (pkgs.callPackage ./self/${dir}/package.nix { inherit sources; })
+  ) (builtins.readDir ./self);
 }
