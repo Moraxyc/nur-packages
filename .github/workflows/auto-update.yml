@@ -34,6 +34,10 @@ jobs:
           path: ~/.local/share/nvfetcher
           key: nvfetcher
 
+      - name: Flake update
+        run: |
+          nix flake update
+
       - name: Fetch new versions
         run: |
           cat > secrets.toml <<EOF
@@ -50,7 +54,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add _sources
-          git commit -m "chore: update sources" || echo "No changes to commit"
+          git commit -m "chore: update" || echo "No changes to commit"
 
       - name: Push changes
         run: |
