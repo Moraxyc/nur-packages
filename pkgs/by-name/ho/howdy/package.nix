@@ -19,7 +19,6 @@
   libevdev,
   pam,
   python3,
-  dlib,
 
   cudaSupport ? config.cudaSupport,
 }:
@@ -48,15 +47,13 @@ let
   py = python3.withPackages (p: [
     p.numpy
     p.elevate
-    (p.face-recognition.override {
-      inherit cudaSupport;
-      dlib = python3.pkgs.dlib.override { dlib = dlib.override { inherit cudaSupport; }; };
-    })
+    p.face-recognition
     p.keyboard
     (p.opencv4.override {
       enableGtk3 = true;
       enableCuda = cudaSupport;
       enableCudnn = true;
+      enableUnfree = true;
     })
     p.pycairo
     p.pygobject3
