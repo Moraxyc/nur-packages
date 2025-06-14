@@ -16,9 +16,6 @@ in
 
   self-howdy = call-cuda ./by-name/ho/howdy/package.nix;
   self-linux-enable-ir-emitter = call-cuda ./by-name/li/linux-enable-ir-emitter/package.nix;
-
-  hath-rust = throw "hath-rust has been merged into nixpkgs/nixos-unstable";
-  rime-ice = throw "rime-ice has been merged into nixpkgs/nixos-unstable";
 }
 // (lib.mapAttrs' (
   dir: _:

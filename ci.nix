@@ -24,7 +24,8 @@ let
       licenseFromMeta = p.meta.license or [ ];
       licenseList = if builtins.isList licenseFromMeta then licenseFromMeta else [ licenseFromMeta ];
     in
-    (builtins.elem system (p.meta.platforms or [ system ]))
+    p ? meta
+    && (builtins.elem system (p.meta.platforms or [ system ]))
     && !(p.meta.broken or false)
     && builtins.all (license: license.free or true) licenseList;
   isCacheable = p: !(p.preferLocalBuild or false);
