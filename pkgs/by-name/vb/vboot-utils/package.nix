@@ -9,6 +9,7 @@
   nss,
   flashrom,
   xz,
+  makeWrapper,
 }:
 let
   version = "138.16295";
@@ -42,7 +43,10 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-QTc1uxObR7hzJJuUd9AktnRJn7QIMcAsKgu4XbrhJLU=";
   };
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [
+    pkg-config
+    makeWrapper
+  ];
   buildInputs = [
     libuuid
     libyaml
@@ -63,10 +67,10 @@ stdenv.mkDerivation (finalAttrs: {
 
   postPatch = ''
     substituteInPlace Makefile \
-      --replace "ar qc" '${stdenv.cc.bintools.targetPrefix}ar qc'
+      --replace-fail "ar qc" '${stdenv.cc.bintools.targetPrefix}ar qc'
     # Drop flag unrecognized by GCC 9 (for e.g. aarch64-linux)
     substituteInPlace Makefile \
-      --replace "-Wno-unknown-warning" ""
+      --replace-fail "-Wno-unknown-warning" ""
   '';
 
   preBuild = ''
@@ -88,6 +92,12 @@ stdenv.mkDerivation (finalAttrs: {
   postInstall = ''
     mkdir -p $out/share/vboot
     cp -r tests/devkeys* $out/share/vboot/
+
+    wrapProgram $out/bin/crossystem --prefix PATH : ${
+      lib.makeBinPath [
+        flashrom_chromeos
+      ]
+    }
   '';
 
   meta = {
