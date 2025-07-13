@@ -37,6 +37,30 @@
     };
     date = "2024-08-03";
   };
+  geolite2-asn = {
+    pname = "geolite2-asn";
+    version = "2025.07.07";
+    src = fetchurl {
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.07.07/GeoLite2-ASN.mmdb";
+      sha256 = "sha256-hwBxeh0isWQynX0bjnJLrtuULtandH4NH92/D5fC3R0=";
+    };
+  };
+  geolite2-city = {
+    pname = "geolite2-city";
+    version = "2025.07.07";
+    src = fetchurl {
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.07.07/GeoLite2-City.mmdb";
+      sha256 = "sha256-1WvrBFTH032kNeqwBj/Fv+K1GicqekH6ngOib+PHmxc=";
+    };
+  };
+  geolite2-country = {
+    pname = "geolite2-country";
+    version = "2025.07.07";
+    src = fetchurl {
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.07.07/GeoLite2-Country.mmdb";
+      sha256 = "sha256-laNLUo1RYWF77OSjwMYasGn33WZKw6fft6AmYQhD5cg=";
+    };
+  };
   libinput-three-finger-drag = {
     pname = "libinput-three-finger-drag";
     version = "6acd3f84b551b855b5f21b08db55e95dae3305c5";
