@@ -3,6 +3,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+
+    systems.url = "github:Moraxyc/nix-systems";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
     nvfetcher = {
@@ -21,12 +24,7 @@
         ./flake-modules/nixpkgs-options.nix
         ./flake-modules/packages.nix
       ];
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
+      systems = import inputs.systems;
       flake = {
         nixosModules = {
           alist = import ./modules/alist.nix;

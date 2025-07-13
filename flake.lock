@@ -141,7 +141,8 @@
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
-        "nvfetcher": "nvfetcher"
+        "nvfetcher": "nvfetcher",
+        "systems": "systems_2"
       }
     },
     "systems": {
@@ -156,6 +157,21 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1752412590,
+        "narHash": "sha256-cuN68pxsh41k/uHlO5CfHyqiqPJhAIgZk0xPNE/2MjE=",
+        "owner": "Moraxyc",
+        "repo": "nix-systems",
+        "rev": "b84721dd32de3875986c6df7ef8a58d04e42a5f3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Moraxyc",
+        "repo": "nix-systems",
         "type": "github"
       }
     }
