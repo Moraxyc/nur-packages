@@ -73,6 +73,17 @@
     };
     date = "2024-06-17";
   };
+  sing-box = {
+    pname = "sing-box";
+    version = "v1.12.0-beta.33";
+    src = fetchFromGitHub {
+      owner = "SagerNet";
+      repo = "sing-box";
+      rev = "v1.12.0-beta.33";
+      fetchSubmodules = false;
+      sha256 = "sha256-+5VmVfcO2mTA0BQuPZRQZTgt7ujYpwynB2gO6OB0ilI=";
+    };
+  };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
     version = "202507152215";

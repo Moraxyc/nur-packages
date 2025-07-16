@@ -128,6 +128,27 @@
         },
         "version": "6acd3f84b551b855b5f21b08db55e95dae3305c5"
     },
+    "sing-box": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "sing-box",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "SagerNet",
+            "repo": "sing-box",
+            "rev": "v1.12.0-beta.33",
+            "sha256": "sha256-+5VmVfcO2mTA0BQuPZRQZTgt7ujYpwynB2gO6OB0ilI=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.12.0-beta.33"
+    },
     "v2ray-rules-dat-geoip": {
         "cargoLocks": null,
         "date": null,
