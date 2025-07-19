@@ -75,29 +75,29 @@
   };
   sing-box = {
     pname = "sing-box";
-    version = "v1.12.0-beta.33";
+    version = "v1.12.0-beta.34";
     src = fetchFromGitHub {
       owner = "SagerNet";
       repo = "sing-box";
-      rev = "v1.12.0-beta.33";
+      rev = "v1.12.0-beta.34";
       fetchSubmodules = false;
-      sha256 = "sha256-+5VmVfcO2mTA0BQuPZRQZTgt7ujYpwynB2gO6OB0ilI=";
+      sha256 = "sha256-5a9j9iWFYN8cNw1uyGQOEzqbYZUZEsG2765MVQYypdA=";
     };
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202507172215";
+    version = "202507182215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202507172215/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202507182215/geoip.dat";
       sha256 = "sha256-z0rC2g2Gi9gRiqXzqz20AoZWmXWl4gR23Fh2V7lNaC0=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202507172215";
+    version = "202507182215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202507172215/geosite.dat";
-      sha256 = "sha256-apAYHlAufKj+TRqbUgKQjW0nUP8yDJSgj2DwA2ageO8=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202507182215/geosite.dat";
+      sha256 = "sha256-3ehv4yrGqIo7UmP6r1M8KOLY2XME2xYK6SgPo/HEJfs=";
     };
   };
 }
