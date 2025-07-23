@@ -10,7 +10,7 @@ sing-box.overrideAttrs (
 
     inherit (sources.sing-box) src;
 
-    vendorHash = "sha256-Nv767Z7L+FwCvGlhUC+yazmTLhuXK6G0TXbhzj5d8zo=";
+    vendorHash = "sha256-PXCLsuasZNROI04wLe69PC1XclazoWUJBjTQoRzWn8Q=";
 
     tags = [
       "with_quic"
@@ -23,12 +23,10 @@ sing-box.overrideAttrs (
       "with_tailscale"
     ];
 
-    postInstall =
-      previousAttrs.postInstall
-      + ''
-        install -Dm444 release/config/sing-box.sysusers $out/lib/sysusers.d/sing-box.conf
-        install -Dm444 release/config/sing-box.rules $out/share/polkit-1/rules.d/sing-box.rules
-        install -Dm444 release/config/sing-box-split-dns.xml $out/share/dbus-1/system.d/sing-box-split-dns.conf
-      '';
+    postInstall = previousAttrs.postInstall + ''
+      install -Dm444 release/config/sing-box.sysusers $out/lib/sysusers.d/sing-box.conf
+      install -Dm444 release/config/sing-box.rules $out/share/polkit-1/rules.d/sing-box.rules
+      install -Dm444 release/config/sing-box-split-dns.xml $out/share/dbus-1/system.d/sing-box-split-dns.conf
+    '';
   }
 )
