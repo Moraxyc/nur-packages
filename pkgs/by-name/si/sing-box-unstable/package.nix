@@ -9,7 +9,7 @@ sing-box.overrideAttrs (
     version = lib.removePrefix "v" sources.sing-box.version;
 
     inherit (sources.sing-box) src;
-    vendorHash = "sha256-lehzKxjv2Tdl5mvenA0drQaX+FNaxHEfjOJZbyFpmnQ=";
+    vendorHash = "sha256-sWWiPDUEc+EBzLmd+QYYVdecqhKBeKkPABEp6jFqraw=";
 
     tags = [
       "with_quic"
