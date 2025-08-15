@@ -3,13 +3,13 @@
 {
   dank-material-shell = {
     pname = "dank-material-shell";
-    version = "v0.0.2";
+    version = "v0.0.3";
     src = fetchFromGitHub {
       owner = "bbedward";
       repo = "DankMaterialShell";
-      rev = "v0.0.2";
+      rev = "v0.0.3";
       fetchSubmodules = false;
-      sha256 = "sha256-BOVdFeuZ+nelst14K6KSzoZtlUu3DBWViAflGCMWVcY=";
+      sha256 = "sha256-K3J+/D6Stu46wc+U7X+CzhDVGSWj5wn28eqZfffw2Vs=";
     };
   };
   english_words = {
@@ -86,29 +86,29 @@
   };
   sing-box = {
     pname = "sing-box";
-    version = "v1.12.1";
+    version = "v1.13.0-alpha.1";
     src = fetchFromGitHub {
       owner = "SagerNet";
       repo = "sing-box";
-      rev = "v1.12.1";
+      rev = "v1.13.0-alpha.1";
       fetchSubmodules = false;
-      sha256 = "sha256-fo5xO081IX+rPA5yZ0P2dxSZsVHsBTJeCJmI0dSgGyE=";
+      sha256 = "sha256-YDqz50xuAgrXK+qMm+CaTbsI3hOHXRRXs90HP/vwmFE=";
     };
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202508140036";
+    version = "202508142214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508140036/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508142214/geoip.dat";
       sha256 = "sha256-9JDTlPUfkeS+/qGr1op7lXT+G//InSW8Jrz5D8SB1H4=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202508140036";
+    version = "202508142214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508140036/geosite.dat";
-      sha256 = "sha256-AQqexJA5/3K1ODEOIYiIo+f0G/ey9DsXE66yvYAQtqQ=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508142214/geosite.dat";
+      sha256 = "sha256-codrCgbmikif62Cpq/uHPxPLKPaejUFXHtyeU3LpUoc=";
     };
   };
 }

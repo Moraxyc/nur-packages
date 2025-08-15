@@ -13,12 +13,12 @@
             "name": null,
             "owner": "bbedward",
             "repo": "DankMaterialShell",
-            "rev": "v0.0.2",
-            "sha256": "sha256-BOVdFeuZ+nelst14K6KSzoZtlUu3DBWViAflGCMWVcY=",
+            "rev": "v0.0.3",
+            "sha256": "sha256-K3J+/D6Stu46wc+U7X+CzhDVGSWj5wn28eqZfffw2Vs=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.2"
+        "version": "v0.0.3"
     },
     "english_words": {
         "cargoLocks": null,
@@ -163,12 +163,12 @@
             "name": null,
             "owner": "SagerNet",
             "repo": "sing-box",
-            "rev": "v1.12.1",
-            "sha256": "sha256-fo5xO081IX+rPA5yZ0P2dxSZsVHsBTJeCJmI0dSgGyE=",
+            "rev": "v1.13.0-alpha.1",
+            "sha256": "sha256-YDqz50xuAgrXK+qMm+CaTbsI3hOHXRRXs90HP/vwmFE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.12.1"
+        "version": "v1.13.0-alpha.1"
     },
     "v2ray-rules-dat-geoip": {
         "cargoLocks": null,
@@ -181,9 +181,9 @@
             "name": null,
             "sha256": "sha256-9JDTlPUfkeS+/qGr1op7lXT+G//InSW8Jrz5D8SB1H4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508140036/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508142214/geoip.dat"
         },
-        "version": "202508140036"
+        "version": "202508142214"
     },
     "v2ray-rules-dat-geosite": {
         "cargoLocks": null,
@@ -194,10 +194,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-AQqexJA5/3K1ODEOIYiIo+f0G/ey9DsXE66yvYAQtqQ=",
+            "sha256": "sha256-codrCgbmikif62Cpq/uHPxPLKPaejUFXHtyeU3LpUoc=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508140036/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508142214/geosite.dat"
         },
-        "version": "202508140036"
+        "version": "202508142214"
     }
 }
