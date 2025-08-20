@@ -34,10 +34,6 @@ fetch.github = "dwyl/english-words"
 src.git = "https://github.com/thep0y/fcitx5-themes-candlelight.git"
 fetch.github = "thep0y/fcitx5-themes-candlelight"
 
-[sing-box]
-src.github_tag = "SagerNet/sing-box"
-fetch.github = "SagerNet/sing-box"
-
 [dank-material-shell]
 src.github_tag = "bbedward/DankMaterialShell"
 fetch.github = "bbedward/DankMaterialShell"
