@@ -13,12 +13,12 @@
             "name": null,
             "owner": "bbedward",
             "repo": "DankMaterialShell",
-            "rev": "v0.0.4",
-            "sha256": "sha256-+PwMEBn0yJcTvin6w4+uHwSo9QBA0J4U8XQ19zeAXFc=",
+            "rev": "v0.0.5",
+            "sha256": "sha256-ZFZV0rrhbE171txxWqE4TIKFVTqCRO79IH0oPPZpQVM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.4"
+        "version": "v0.0.5"
     },
     "english_words": {
         "cargoLocks": null,
@@ -160,9 +160,9 @@
             "name": null,
             "sha256": "sha256-iWYUhaChIMjaCTsaKHBQlIbHmbcQPDSFVZlin5PAvlE=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508222213/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508232212/geoip.dat"
         },
-        "version": "202508222213"
+        "version": "202508232212"
     },
     "v2ray-rules-dat-geosite": {
         "cargoLocks": null,
@@ -173,10 +173,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-YBybsoic060dd2vFdSEvxpav9goT0mtp92yQ87KoOZc=",
+            "sha256": "sha256-fIG5Khoo4CUlmpPF4Aim1D5MoePdJR+Y6aPGxeZ9AGY=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508222213/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508232212/geosite.dat"
         },
-        "version": "202508222213"
+        "version": "202508232212"
     }
 }
