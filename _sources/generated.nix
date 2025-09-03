@@ -3,13 +3,13 @@
 {
   dank-material-shell = {
     pname = "dank-material-shell";
-    version = "v0.0.5";
+    version = "v0.0.6";
     src = fetchFromGitHub {
       owner = "bbedward";
       repo = "DankMaterialShell";
-      rev = "v0.0.5";
+      rev = "v0.0.6";
       fetchSubmodules = false;
-      sha256 = "sha256-ZFZV0rrhbE171txxWqE4TIKFVTqCRO79IH0oPPZpQVM=";
+      sha256 = "sha256-dr7yQMPRIhUTGaMv8SALOfOPWR6X0ieEJ7v1/J+6jxs=";
     };
   };
   english_words = {
@@ -86,18 +86,18 @@
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202509012212";
+    version = "202509022211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509012212/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509022211/geoip.dat";
       sha256 = "sha256-pmOnr3jlh1I9JXz51Or6bwzV+01fv9ti0BT/uG80G6w=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202509012212";
+    version = "202509022211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509012212/geosite.dat";
-      sha256 = "sha256-5dNUpZr3T7r1mMMpMDIcc8Io+D3rH6Jh75b1Yed3l6I=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509022211/geosite.dat";
+      sha256 = "sha256-YROO1tfG4h/oZnJ5SoTkyqPO7fMOGb21+TT1N3s+234=";
     };
   };
 }
