@@ -47,14 +47,14 @@ jobs:
           github = "${{ secrets.GITHUB_TOKEN }}"
           EOF
 
-          nix develop -c nvfetcher
+          nix develop -c update-packages
 
           rm -f secrets.toml
 
       - name: Commit changes
         run: |
           git add _sources
-          git commit -m "chore: update" || echo "No changes to commit"
+          git commit -m "chore: update nvfetcher" || echo "No changes to commit"
 
       - name: Push changes
         run: |

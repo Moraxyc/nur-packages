@@ -12,7 +12,6 @@ rustPlatform.buildRustPackage {
 
   inherit (sources.exloli-next) version src;
 
-  useFetchCargoVendor = true;
   cargoHash = "sha256-weV2D9253qrqeF7lN8ucJdMz3kgh/IjCAZWI6EI4ytw=";
 
   nativeBuildInputs = [
