@@ -1,9 +1,14 @@
 { inputs, ... }:
+let
+  packages = builtins.concatStringsSep " " [
+    "hmcl-dev"
+  ];
+in
 {
   perSystem =
     {
       pkgs,
-      self',
+      lib,
       ...
     }:
     let
@@ -13,10 +18,13 @@
         # Nvfetcher
         KEY_FLAG=""
         [ -f "secrets.toml" ] && KEY_FLAG="$KEY_FLAG -k secrets.toml"
-        ${self'.packages.nvfetcher}/bin/nvfetcher $KEY_FLAG --keep-going -c nvfetcher.toml -o _sources "$@"
+        ${lib.getExe pkgs.nvfetcher} $KEY_FLAG --keep-going -c nvfetcher.toml -o packages/sources "$@"
 
         # UpdateScript
-        nix-shell ${inputs.nixpkgs}/maintainers/scripts/update.nix --argstr maintainer moraxyc
+        for PACKAGE in ${packages}; do
+          echo "Updating package '$PACKAGE'."
+          ${lib.getExe pkgs.nix-update} --flake --commit "$PACKAGE" 1>/dev/null
+        done
       '';
     in
     {
