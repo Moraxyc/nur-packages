@@ -222,7 +222,6 @@ stdenv.mkDerivation (finalAttrs: {
     '';
 
   passthru = {
-    updateScript = lib.getExe (callPackage ./update.nix { });
     jar = fetchurl {
       url = "https://github.com/HMCL-dev/HMCL/releases/download/v${finalAttrs.version}/HMCL-${finalAttrs.version}.jar";
       hash = "sha256-0ojI2XcvdALdT361pVUmfQPepsNFEbmcgJLymhBOkOM=";
