@@ -1,6 +1,6 @@
 {
     "english_words": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": "2025-01-06",
         "extract": null,
         "name": "english_words",
@@ -21,7 +21,7 @@
         "version": "20f5cc9b3f0ccc8ce45d814c532b7c2031bba31c"
     },
     "exloli-next": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": "2024-11-23",
         "extract": null,
         "name": "exloli-next",
@@ -42,7 +42,7 @@
         "version": "41d7a6e52a1625d6febb47160a4b143ca47c16d5"
     },
     "fcitx5-themes-candlelight": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": "2025-10-18",
         "extract": null,
         "name": "fcitx5-themes-candlelight",
@@ -63,7 +63,7 @@
         "version": "af2503fec64e162635a5a86de669808dd33b416c"
     },
     "geolite2-asn": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": null,
         "extract": null,
         "name": "geolite2-asn",
@@ -78,7 +78,7 @@
         "version": "2025.10.28"
     },
     "geolite2-city": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": null,
         "extract": null,
         "name": "geolite2-city",
@@ -93,7 +93,7 @@
         "version": "2025.10.28"
     },
     "geolite2-country": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": null,
         "extract": null,
         "name": "geolite2-country",
@@ -108,7 +108,7 @@
         "version": "2025.10.28"
     },
     "libinput-three-finger-drag": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": "2024-06-17",
         "extract": null,
         "name": "libinput-three-finger-drag",
@@ -129,7 +129,7 @@
         "version": "6acd3f84b551b855b5f21b08db55e95dae3305c5"
     },
     "v2ray-rules-dat-geoip": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": null,
         "extract": null,
         "name": "v2ray-rules-dat-geoip",
@@ -144,7 +144,7 @@
         "version": "202510292213"
     },
     "v2ray-rules-dat-geosite": {
-        "cargoLock": null,
+        "cargoLocks": null,
         "date": null,
         "extract": null,
         "name": "v2ray-rules-dat-geosite",
