@@ -80,6 +80,8 @@ stdenv.mkDerivation (finalAttrs: {
     ./0001-nix-do-not-output-timestamp.patch
     # Do not download binary file
     (replaceVars ./0002-nix-use-terracotta-from-nix.patch { TERRACOTTA_BIN = lib.getExe terracotta; })
+    # Skip terracotta existence check on darwin
+    ./0003-nix-skip-terracotta-existence-check-on-darwin.patch
   ];
 
   postPatch = ''
