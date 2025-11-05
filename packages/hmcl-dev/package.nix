@@ -5,7 +5,8 @@
   fetchurl,
   fetchFromGitHub,
 
-  gradle,
+  gradle_9,
+  hmclGradle ? gradle_9,
   unzip,
   replaceVars,
   makeDesktopItem,
@@ -18,7 +19,7 @@
 
   jdk17,
   jdk21,
-  jdk23,
+  zulu25,
   xorg,
   glib,
   libGL,
@@ -36,11 +37,11 @@
   gobject-introspection,
   zenity,
 
-  hmclJdk ? jdk23,
+  hmclJdk ? zulu25,
   minecraftJdks ? [
     jdk17
     jdk21
-    jdk23
+    zulu25
   ],
 
   extraLibs ? [ ],
@@ -110,7 +111,7 @@ stdenv.mkDerivation (finalAttrs: {
   nativeBuildInputs = [
     copyDesktopItems
     gobject-introspection
-    gradle
+    hmclGradle
     imagemagick
     stripJavaArchivesHook
     unzip
@@ -118,7 +119,7 @@ stdenv.mkDerivation (finalAttrs: {
   ]
   ++ lib.optional stdenv.hostPlatform.isDarwin desktopToDarwinBundle;
 
-  mitmCache = gradle.fetchDeps {
+  mitmCache = hmclGradle.fetchDeps {
     inherit (finalAttrs) pname;
     data = ./deps.json;
   };
