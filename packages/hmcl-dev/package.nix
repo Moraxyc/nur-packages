@@ -14,12 +14,11 @@
   stripJavaArchivesHook,
   desktopToDarwinBundle,
   imagemagick,
-  callPackage,
   runtimeShell,
 
-  jdk,
   jdk17,
   jdk21,
+  jdk23,
   xorg,
   glib,
   libGL,
@@ -37,11 +36,11 @@
   gobject-introspection,
   zenity,
 
-  hmclJdk ? jdk,
+  hmclJdk ? jdk23,
   minecraftJdks ? [
-    jdk
     jdk17
     jdk21
+    jdk23
   ],
 
   extraLibs ? [ ],
