@@ -37,6 +37,18 @@
     };
     date = "2025-11-07";
   };
+  flapalerted = {
+    pname = "flapalerted";
+    version = "118159b81a3ec30e283d227cd806e24a70f31864";
+    src = fetchFromGitHub {
+      owner = "Kioubit";
+      repo = "FlapAlerted";
+      rev = "118159b81a3ec30e283d227cd806e24a70f31864";
+      fetchSubmodules = false;
+      sha256 = "sha256-H6I989zQKSo/6oQ5XBvGOA2mAvnoObl4i8CTYDy6rrM=";
+    };
+    date = "2025-07-30";
+  };
   geolite2-asn = {
     pname = "geolite2-asn";
     version = "2025.11.13";

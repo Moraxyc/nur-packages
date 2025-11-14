@@ -62,6 +62,27 @@
         },
         "version": "653677b0454569f41c815b3d262a57e42c90ee05"
     },
+    "flapalerted": {
+        "cargoLocks": null,
+        "date": "2025-07-30",
+        "extract": null,
+        "name": "flapalerted",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Kioubit",
+            "repo": "FlapAlerted",
+            "rev": "118159b81a3ec30e283d227cd806e24a70f31864",
+            "sha256": "sha256-H6I989zQKSo/6oQ5XBvGOA2mAvnoObl4i8CTYDy6rrM=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "118159b81a3ec30e283d227cd806e24a70f31864"
+    },
     "geolite2-asn": {
         "cargoLocks": null,
         "date": null,

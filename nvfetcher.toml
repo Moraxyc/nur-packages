@@ -2,6 +2,10 @@
 src.git = "https://github.com/lolishinshi/exloli-next"
 fetch.github = "lolishinshi/exloli-next"
 
+[flapalerted]
+src.git = "https://github.com/Kioubit/FlapAlerted"
+fetch.github = "Kioubit/FlapAlerted"
+
 [geolite2-asn]
 src.github = "P3TERX/GeoLite.mmdb"
 fetch.url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/$ver/GeoLite2-ASN.mmdb"
