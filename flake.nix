@@ -28,6 +28,7 @@
           gost = import ./modules/gost.nix;
           exloli-next = import ./modules/exloli-next.nix;
           bark-server = import ./modules/bark-server.nix;
+          ensurePcr = import ./modules/ensure-pcr.nix;
         };
         lib = import ./lib;
       };
