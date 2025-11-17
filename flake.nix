@@ -30,6 +30,7 @@
           bark-server = import ./modules/bark-server.nix;
           ensure-pcr = import ./modules/ensure-pcr.nix;
           ddns-go = import ./modules/ddns-go.nix;
+          flapalerted = import ./modules/flapalerted.nix;
         };
         lib = import ./lib;
       };
