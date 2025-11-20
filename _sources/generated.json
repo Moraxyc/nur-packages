@@ -64,7 +64,7 @@
     },
     "flapalerted": {
         "cargoLocks": null,
-        "date": "2025-11-16",
+        "date": "2025-11-19",
         "extract": null,
         "name": "flapalerted",
         "passthru": null,
@@ -76,12 +76,12 @@
             "name": null,
             "owner": "Kioubit",
             "repo": "FlapAlerted",
-            "rev": "79c1753939c62a827da771875323dfb05a24dabe",
-            "sha256": "sha256-rJmrzZ7HrlkOhi6Xzf2Ky8ZCEqlpA3Afx/9nZKoZQ8k=",
+            "rev": "731c8bace1a622ab6e5b3c78d8a6f1f03f1a383f",
+            "sha256": "sha256-JdTlGegY3hq9ImKRJeq7HWH4LWnOAZCHCXw3fYg6ras=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "79c1753939c62a827da771875323dfb05a24dabe"
+        "version": "731c8bace1a622ab6e5b3c78d8a6f1f03f1a383f"
     },
     "geolite2-asn": {
         "cargoLocks": null,
@@ -160,9 +160,9 @@
             "name": null,
             "sha256": "sha256-VSNZjO/xx+7PohUPi82SlLAQ2sHYVdDLkMoSCqucJDU=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511182214/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511192214/geoip.dat"
         },
-        "version": "202511182214"
+        "version": "202511192214"
     },
     "v2ray-rules-dat-geosite": {
         "cargoLocks": null,
@@ -173,10 +173,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-4467AeZi0UVuTI8i0pXSp7/wbOdISdSgvq6MtS0SQcM=",
+            "sha256": "sha256-6BFvZhc516Mo/zFMTqd/EEWvj+vZKPi5o2MX8eduWt4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511182214/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511192214/geosite.dat"
         },
-        "version": "202511182214"
+        "version": "202511192214"
     }
 }
