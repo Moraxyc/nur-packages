@@ -66,13 +66,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "hmcl";
-  version = "3.8.0.308";
+  version = "3.8.0.310";
 
   src = fetchFromGitHub {
     owner = "HMCL-dev";
     repo = "HMCL";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-h/kKz+AVv2zvIVLgg7vpokZ/fVRZYTm+U01HMcxRyrk=";
+    hash = "sha256-iGK4/JMnWDSieHKdOpTRkB/Zge9KPcXGCgTZPjNd8js=";
   };
 
   patches = [
@@ -226,7 +226,7 @@ stdenv.mkDerivation (finalAttrs: {
   passthru = {
     jar = fetchurl {
       url = "https://github.com/HMCL-dev/HMCL/releases/download/v${finalAttrs.version}/HMCL-${finalAttrs.version}.jar";
-      hash = "sha256-1ADs1x4pll92l9XL0Iq0+AB6JyT+3TK51eVjpJWI5cU=";
+      hash = "sha256-Ye/Fb0TDO7H4r0aICePblmk5YqMMrGOd3UpCEFOu+UU=";
     };
   };
 
