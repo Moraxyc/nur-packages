@@ -149,6 +149,27 @@
         },
         "version": "6acd3f84b551b855b5f21b08db55e95dae3305c5"
     },
+    "pixy2": {
+        "cargoLocks": null,
+        "date": "2024-07-17",
+        "extract": null,
+        "name": "pixy2",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "charmedlabs",
+            "repo": "pixy2",
+            "rev": "d7c38d49ae8071b58e46f5b35eda927dd2b7c621",
+            "sha256": "sha256-w0t7KqV8OS3PJBdZtLn86zknQYo70rBv7fuK/UFx9zQ=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "d7c38d49ae8071b58e46f5b35eda927dd2b7c621"
+    },
     "v2ray-rules-dat-geoip": {
         "cargoLocks": null,
         "date": null,

@@ -85,6 +85,18 @@
     };
     date = "2024-06-17";
   };
+  pixy2 = {
+    pname = "pixy2";
+    version = "d7c38d49ae8071b58e46f5b35eda927dd2b7c621";
+    src = fetchFromGitHub {
+      owner = "charmedlabs";
+      repo = "pixy2";
+      rev = "d7c38d49ae8071b58e46f5b35eda927dd2b7c621";
+      fetchSubmodules = false;
+      sha256 = "sha256-w0t7KqV8OS3PJBdZtLn86zknQYo70rBv7fuK/UFx9zQ=";
+    };
+    date = "2024-07-17";
+  };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
     version = "202511232213";
