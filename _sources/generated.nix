@@ -39,15 +39,15 @@
   };
   flapalerted = {
     pname = "flapalerted";
-    version = "64a86e9aea722ce4755ea098fd4fec44d99dcc51";
+    version = "da6576eb717463eea4971d70956a234e075a39bb";
     src = fetchFromGitHub {
       owner = "Kioubit";
       repo = "FlapAlerted";
-      rev = "64a86e9aea722ce4755ea098fd4fec44d99dcc51";
+      rev = "da6576eb717463eea4971d70956a234e075a39bb";
       fetchSubmodules = false;
-      sha256 = "sha256-TD6enzFHNub6M+cabj7ywkx+ax373YLkANL12Nt5ITU=";
+      sha256 = "sha256-dEGXqvux/2RcBjvv6yaA+SYKuQSvH8XkGivDVc/YYyg=";
     };
-    date = "2025-11-24";
+    date = "2025-11-25";
   };
   geolite2-asn = {
     pname = "geolite2-asn";
@@ -99,18 +99,18 @@
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202511242213";
+    version = "202511252214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511242213/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511252214/geoip.dat";
       sha256 = "sha256-dmaakIEbcWbcrGIdypD2JG4rIQZTwYhDVRN/QvQRUrA=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202511242213";
+    version = "202511252214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511242213/geosite.dat";
-      sha256 = "sha256-NIplq6wHsYUy011/GZzIOjOJliGzoah+u5lT2KxGkmY=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511252214/geosite.dat";
+      sha256 = "sha256-HyBU/5mQVh+BNtdRYPzQpFFZZR5mjCzgKnBUvWNX2/g=";
     };
   };
 }
