@@ -92,11 +92,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ko3mn1xLtQjo4S58YrSr2HasKM2CZ4TKqUvy1bb5qg8=",
+            "sha256": "sha256-GnLFXPiP01ww3pt0UUq3fo+P5bamy8adDSPurgVV/mU=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.01/GeoLite2-ASN.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.04/GeoLite2-ASN.mmdb"
         },
-        "version": "2025.12.01"
+        "version": "2025.12.04"
     },
     "geolite2-city": {
         "cargoLocks": null,
@@ -107,11 +107,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-M0jcYwmG0/Catx+Hr9x1+W0DRGbwI/8EaFBTgcY/L3Y=",
+            "sha256": "sha256-+LVBqcc51PQsDci06F1F6L+80VMRWAdLW0cIHEgkXrw=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.01/GeoLite2-City.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.04/GeoLite2-City.mmdb"
         },
-        "version": "2025.12.01"
+        "version": "2025.12.04"
     },
     "geolite2-country": {
         "cargoLocks": null,
@@ -122,11 +122,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-BFn0Ivni6GVCcvaTSpW3n1W+DMcPNWMKlGtX7LO0OOI=",
+            "sha256": "sha256-PAXj4G0YFPWgsy8jO6qxmJRtHIotfC5qW2EfmJ90PzU=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.01/GeoLite2-Country.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.04/GeoLite2-Country.mmdb"
         },
-        "version": "2025.12.01"
+        "version": "2025.12.04"
     },
     "libinput-three-finger-drag": {
         "cargoLocks": null,
@@ -181,9 +181,9 @@
             "name": null,
             "sha256": "sha256-W2/ndUbJiTCGIN2nzFhJlbkgA/H8G1O00YwDnZqXeQo=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512022213/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512032215/geoip.dat"
         },
-        "version": "202512022213"
+        "version": "202512032215"
     },
     "v2ray-rules-dat-geosite": {
         "cargoLocks": null,
@@ -194,10 +194,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-/NkovVAPqth1wBfZfQXSk/x4mDK0KyfLKmTVZhfv1aM=",
+            "sha256": "sha256-7b7iFVwC2vMa2h/vV/9fq040zyMhFeiKswAx97f8ZOE=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512022213/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512032215/geosite.dat"
         },
-        "version": "202512022213"
+        "version": "202512032215"
     }
 }
