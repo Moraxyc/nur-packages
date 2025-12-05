@@ -15,6 +15,9 @@
   openssl,
 
   nix-update-script,
+
+  serverPort ? 28080,
+  metricPort ? 23000,
 }:
 
 buildDotnetModule (finalAttrs: {
@@ -38,6 +41,10 @@ buildDotnetModule (finalAttrs: {
     xmlstarlet ed -L \
       -d "//Target[@Name='PublishFrontend']" \
       ${finalAttrs.projectFile}
+
+    substituteInPlace src/GZCTF/Server.cs \
+      --replace-fail 'MetricPort = 3000' 'MetricPort = ${toString metricPort}' \
+      --replace-fail 'ServerPort = 8080' 'ServerPort = ${toString serverPort}'
   '';
 
   projectFile = "src/GZCTF/GZCTF.csproj";
