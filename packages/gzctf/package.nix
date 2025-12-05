@@ -25,7 +25,7 @@ buildDotnetModule (finalAttrs: {
     owner = "GZTimeWalker";
     repo = "GZCTF";
     rev = "f20f35a5d882d17e7b1b533f1c3a93c73a984cb5";
-    hash = "sha256-IcPSzxYnxsUyDoqKRvtEUqa6Cu1srqa53vUd5yl7zKg=";
+    hash = "sha256-XYi4uaHOMwgbgeJUxA0T3M5/JIgIJihqHOuzrbMIhws=";
     leaveDotGit = true;
     postFetch = ''
       git -C $out rev-parse HEAD > $out/.git_head
