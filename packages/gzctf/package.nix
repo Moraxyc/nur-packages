@@ -40,13 +40,15 @@ buildDotnetModule (finalAttrs: {
       ${finalAttrs.projectFile}
   '';
 
+  projectFile = "src/GZCTF/GZCTF.csproj";
+  testProjectFile = [
+    "src/GZCTF.Test/GZCTF.Test.csproj"
+    "src/GZCTF.Integration.Test/GZCTF.Integration.Test.csproj"
+  ];
   dotnet-sdk = dotnetCorePackages.sdk_10_0;
   dotnet-runtime = dotnetCorePackages.aspnetcore_10_0;
-
   nugetDeps = ./deps.json;
-
   nativeBuildInputs = [ xmlstarlet ];
-
   runtimeDeps = [
     libgdiplus
     libpcap
@@ -55,8 +57,6 @@ buildDotnetModule (finalAttrs: {
     zlib
     krb5
   ];
-
-  projectFile = "src/GZCTF/GZCTF.csproj";
 
   dotnetFlags = [
     # this removes the Microsoft.WindowsDesktop.App.Ref dependency
