@@ -99,18 +99,18 @@
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202512042212";
+    version = "202512052214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512042212/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512052214/geoip.dat";
       sha256 = "sha256-v6JMBbyoEWT+hZ8m/224vXGV0vr3dcL/N0xLT62+pHk=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202512042212";
+    version = "202512052214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512042212/geosite.dat";
-      sha256 = "sha256-7y83e3af0joqWROndtJ0t4vfAmRDRzQtTjHkRRwKkpg=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512052214/geosite.dat";
+      sha256 = "sha256-lxXKFfaCuaU0oKXENVrWq0UmWCcL6JXEIux5CnJ0tdo=";
     };
   };
 }
