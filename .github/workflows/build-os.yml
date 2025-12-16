@@ -106,7 +106,7 @@ jobs:
             build-dir = /nix/build
             experimental-features = nix-command flakes ca-derivations auto-allocate-uids cgroups pipe-operators dynamic-derivations recursive-nix
             system-features = nixos-test benchmark big-parallel kvm
-            keep-going = true
+            keep-going = false
             log-lines = 25
             netrc-file = /run/secrets/nix-netrc
             substituters = https://nix-cache.qaq.li/moraxyc https://moraxyc.cachix.org https://cache.nixos.org/ https://cache.garnix.io https://cache.nixos-cuda.org
