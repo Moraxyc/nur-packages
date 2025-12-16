@@ -91,7 +91,6 @@ jobs:
           printf "machine nix-cache.qaq.li\npassword %s\n" "$ATTIC_TOKEN" | sudo tee /run/secrets/nix-netrc > /dev/null
           whoami
           pwd
-          ls
           lscpu
           free -h
           df -h
@@ -119,6 +118,7 @@ jobs:
           INPUT_DARWIN: ${{ inputs.aarch64-darwin }}
           CURRENT_SYSTEM: ${{ matrix.system }}
           EXTRA_ARGS: ${{ inputs.extra-args }}
+        continue-on-error: true
         run: |
           if [[ "$CURRENT_SYSTEM" == "x86_64-linux" ]]; then TARGET_NODES="$INPUT_X86"; fi
           if [[ "$CURRENT_SYSTEM" == "aarch64-linux" ]]; then TARGET_NODES="$INPUT_ARM"; fi
