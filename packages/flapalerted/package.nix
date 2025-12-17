@@ -12,7 +12,10 @@ buildGoModule (finalAttrs: {
 
   vendorHash = null;
 
-  ldflags = [ "-s" ];
+  ldflags = [
+    "-s"
+    "-X main.Version=${finalAttrs.version}"
+  ];
 
   meta = {
     description = "BGP Update based flap detection";
