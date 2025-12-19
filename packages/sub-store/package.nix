@@ -5,8 +5,6 @@
 
   pnpm_10,
   pnpm ? pnpm_10,
-  fetchPnpmDeps,
-  pnpmConfigHook,
   makeBinaryWrapper,
   nix-update-script,
 
@@ -28,20 +26,20 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     nodejs
-    pnpmConfigHook
+    pnpm.configHook
     pnpm
     makeBinaryWrapper
   ];
 
-  pnpmDeps = fetchPnpmDeps {
+  pnpmDeps = pnpm.fetchDeps {
     inherit (finalAttrs)
       pname
       version
       src
       sourceRoot
       ;
-    fetcherVersion = 3;
-    hash = "sha256-VsK6qvBeOF2smXRFmMk4gWxQgAD1GG/ExvZdIERdz9g=";
+    fetcherVersion = 2;
+    hash = "sha256-cR0exF/yLNRsvK5+k2xVuSRBJlCiXCgrNyreTIkAQUw=";
   };
 
   buildPhase = ''
