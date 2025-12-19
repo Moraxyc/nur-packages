@@ -41,7 +41,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       patches
       ;
     fetcherVersion = 2;
-    hash = "sha256-TKrRobE7MXYCOS6fcjOAaUq6rWRSAmfpZNj8WKKjbU8=";
+    hash = "sha256-mg5BybafGgTIsJqRpXE1XpLxtMBuHAwY6ZGN9BqAxGk=";
   };
 
   buildPhase = ''
@@ -62,7 +62,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   passthru = {
     contributors = fetchurl {
       url = "https://api.github.com/repos/GZTimeWalker/GZCTF/contributors";
-      hash = "sha256-LXveRtblghhtjbB14wHPuLV3hNBfaDPPg+aW1/gVwtA=";
+      hash = "sha256-Y8stZF+F5UW50oY0QrhuDSnCKKl7m7omvaFHgFAAqjg=";
     };
   };
 })

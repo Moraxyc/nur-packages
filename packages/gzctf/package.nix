@@ -22,13 +22,13 @@
 
 buildDotnetModule (finalAttrs: {
   pname = "gzctf";
-  version = "1.7.2-unstable-2025-12-04";
+  version = "1.8.0";
 
   src = fetchFromGitHub {
     owner = "GZTimeWalker";
     repo = "GZCTF";
-    rev = "f20f35a5d882d17e7b1b533f1c3a93c73a984cb5";
-    hash = "sha256-XYi4uaHOMwgbgeJUxA0T3M5/JIgIJihqHOuzrbMIhws=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-XYWqHOsK4LfEt8JQxzsXRhC5abRBz/Pwmpew7j+txv4=";
     leaveDotGit = true;
     postFetch = ''
       git -C $out rev-parse HEAD > $out/.git_head
