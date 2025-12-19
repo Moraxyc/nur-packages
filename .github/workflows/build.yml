@@ -58,10 +58,6 @@ jobs:
         run: |
           sudo mkdir -p /nix/secrets
           printf "machine nix-cache.qaq.li\npassword %s\n" "$ATTIC_TOKEN" | sudo tee /nix/secrets/nix-netrc > /dev/null
-          whoami
-          pwd
-          lscpu
-          free -h
           df -h
           sudo mkdir -p /nix/build
 
