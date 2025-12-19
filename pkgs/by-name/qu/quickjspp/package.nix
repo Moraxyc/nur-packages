@@ -36,5 +36,6 @@ stdenv.mkDerivation (finalAttrs: {
     license = lib.licenses.cc0;
     maintainers = with lib.maintainers; [ moraxyc ];
     mainProgram = "quickjspp";
+    platforms = lib.platforms.linux;
   };
 })
