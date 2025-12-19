@@ -61,12 +61,12 @@ jobs:
           df -h
           sudo mkdir -p /nix/build
 
-      - name: Setup cachix
-        uses: cachix/cachix-action@v16
+      - name: Setup Attic cache
+        uses: ryanccn/attic-action@v0
         with:
-          name: moraxyc
-          signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          endpoint: ${{ vars.ATTIC_SERVER }}
+          cache: ${{ vars.ATTIC_CACHE }}
+          token: ${{ secrets.ATTIC_TOKEN }}
       - name: Check evaluation
         run: |
           nix flake show
