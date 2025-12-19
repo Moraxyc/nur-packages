@@ -6,9 +6,7 @@
 
 buildGoModule (finalAttrs: {
   pname = "flapalerted";
-  version = sources.flapalerted.date;
-
-  inherit (sources.flapalerted) src;
+  inherit (sources.flapalerted) src version;
 
   vendorHash = null;
 

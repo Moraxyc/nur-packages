@@ -70,8 +70,8 @@ jobs:
       - name: Check evaluation
         run: |
           nix flake show
-      - name: Build nix packages
-        run: nix shell nixpkgs#nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs --show-trace --system ${{ matrix.label }}
+      - name: Build with nix-fast-build
+        run: nix-fast-build --flake .#ciPackages --system ${{ matrix.label }} --no-nom --skip-cached
       # - name: Trigger NUR update
       #   # Don't replace <YOUR_REPO_NAME> here!
       #   if: ${{ matrix.nurRepo != '<YOUR_REPO_NAME>' }}

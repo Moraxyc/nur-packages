@@ -11,9 +11,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "pixymon";
-  version = sources.pixy2.date;
-
-  inherit (sources.pixy2) src;
+  inherit (sources.pixy2) src version;
 
   sourceRoot = "${finalAttrs.src.name}/src/host/pixymon";
 

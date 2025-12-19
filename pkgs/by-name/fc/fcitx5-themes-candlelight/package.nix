@@ -4,14 +4,9 @@
   lib,
   ...
 }:
-let
-  source = sources.fcitx5-themes-candlelight;
-in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "fcitx5-themes-candlelight";
-  version = source.date;
-
-  inherit (source) src;
+  inherit (sources.fcitx5-themes-candlelight) src version;
 
   phases = [
     "unpackPhase"

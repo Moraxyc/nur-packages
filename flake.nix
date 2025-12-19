@@ -8,7 +8,6 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
-    pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
   };
   outputs =
     {
@@ -21,6 +20,8 @@
         ./flake-modules/nixpkgs-options.nix
         ./flake-modules/by-name.nix
         ./flake-modules/modules.nix
+        ./flake-modules/ci-outputs.nix
+        ./flake-modules/nur-outputs.nix
       ];
       systems = import inputs.systems;
       flake = {

@@ -5,8 +5,7 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "english-words";
-  inherit (sources.english_words) src;
-  version = sources.english_words.date;
+  inherit (sources.english_words) src version;
 
   phases = [
     "unpackPhase"
