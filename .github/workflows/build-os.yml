@@ -82,20 +82,6 @@ jobs:
           hatchet-protocol: rampage
           root-safe-haven: 4096
 
-      - name: prepare
-        env:
-          ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
-          ATTIC_SERVER: ${{ vars.ATTIC_SERVER }}
-        run: |
-          sudo mkdir -p /run/secrets
-          printf "machine nix-cache.qaq.li\npassword %s\n" "$ATTIC_TOKEN" | sudo tee /run/secrets/nix-netrc > /dev/null
-          whoami
-          pwd
-          lscpu
-          free -h
-          df -h
-          sudo mkdir -p /nix/build
-
       - name: Install nix
         uses: cachix/install-nix-action@v31
         with:
@@ -107,9 +93,30 @@ jobs:
             system-features = nixos-test benchmark big-parallel kvm
             keep-going = false
             log-lines = 25
-            netrc-file = /run/secrets/nix-netrc
+            netrc-file = /nix/secrets/nix-netrc
             substituters = https://nix-cache.qaq.li/moraxyc https://moraxyc.cachix.org https://cache.nixos.org/ https://cache.garnix.io https://cache.nixos-cuda.org
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= moraxyc.cachix.org-1:p00BlzhjSZq23aXYuzeUF2uXdE8ikh6tq9aV1seenhQ= moraxyc:fLUN1qkE59zF7jNqc2paA06LcxLzcoBMyGfWLOKU2NY= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g= cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=
+
+      - name: prepare
+        env:
+          ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
+          ATTIC_SERVER: ${{ vars.ATTIC_SERVER }}
+        run: |
+          sudo mkdir -p /nix/secrets
+          printf "machine nix-cache.qaq.li\npassword %s\n" "$ATTIC_TOKEN" | sudo tee /nix/secrets/nix-netrc > /dev/null
+          whoami
+          pwd
+          lscpu
+          free -h
+          df -h
+          sudo mkdir -p /nix/build
+
+      - name: Setup Attic cache
+        uses: ryanccn/attic-action@v0
+        with:
+          endpoint: ${{ vars.ATTIC_SERVER }}
+          cache: ${{ vars.ATTIC_CACHE }}
+          token: ${{ secrets.ATTIC_TOKEN }}
 
       - name: Run colmena build
         env:
@@ -127,28 +134,7 @@ jobs:
           echo "Building for system: $CURRENT_SYSTEM"
           echo "Targets: $TARGET_NODES"
 
-          nix-build -A devShells.$(nix eval --expr 'builtins.currentSystem' --impure --raw).default --out-link .shell
           nix develop --command colmena build --on "$TARGET_NODES" --keep-result $EXTRA_ARGS > /dev/null 2>&1
-
-      - name: push results to cache
-        run: |
-          (realpath -qe .gcroots/* .shell || true) > paths
-          [[ -s paths ]] || exit 0
-
-          nix develop -c attic login default "$ATTIC_SERVER" "$ATTIC_TOKEN"
-          if ! nix develop -c attic cache info "$ATTIC_CACHE"; then
-            echo "::error::attic returned an error"
-            exit 0
-          fi
-
-          # try several times
-          nix develop -c attic push --stdin "$ATTIC_CACHE" < paths > /dev/null 2>&1 || true
-          nix develop -c attic push --stdin "$ATTIC_CACHE" < paths > /dev/null 2>&1 || true
-          nix develop -c attic push --stdin "$ATTIC_CACHE" < paths > /dev/null 2>&1 || true
-        env:
-          ATTIC_SERVER: ${{ vars.ATTIC_SERVER }}
-          ATTIC_CACHE: ${{ vars.ATTIC_CACHE }}
-          ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
 
       - name: start upterm session
         if: ${{ inputs.upterm }}
