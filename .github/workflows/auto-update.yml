@@ -20,6 +20,7 @@ jobs:
           ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
           ATTIC_SERVER: ${{ vars.ATTIC_SERVER }}
           ATTIC_CACHE: ${{ vars.ATTIC_CACHE }}
+          ONLY_NIX: true
 
       - name: Cache Nvfetcher Database
         id: cache-nvfetcher
