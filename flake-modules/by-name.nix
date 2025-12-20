@@ -24,6 +24,7 @@
   ];
   perSystem =
     {
+      pkgs,
       ...
     }@args:
     {
