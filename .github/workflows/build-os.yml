@@ -124,9 +124,7 @@ jobs:
             };
           }
           EOF
-          git add ..
           nix flake lock
-          git add ..
 
       - name: Run nix-fast-build
         env:
