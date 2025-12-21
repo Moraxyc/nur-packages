@@ -85,6 +85,17 @@
     };
     date = "2024-06-17";
   };
+  mm-geofeed-verifier = {
+    pname = "mm-geofeed-verifier";
+    version = "v3.1.0";
+    src = fetchFromGitHub {
+      owner = "maxmind";
+      repo = "mm-geofeed-verifier";
+      rev = "v3.1.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-14TztORKynlHS277k+W7FN1kgQD0FFu5W07wxgCDFS0=";
+    };
+  };
   pixy2 = {
     pname = "pixy2";
     version = "d7c38d49ae8071b58e46f5b35eda927dd2b7c621";

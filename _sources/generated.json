@@ -149,6 +149,27 @@
         },
         "version": "6acd3f84b551b855b5f21b08db55e95dae3305c5"
     },
+    "mm-geofeed-verifier": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "mm-geofeed-verifier",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "maxmind",
+            "repo": "mm-geofeed-verifier",
+            "rev": "v3.1.0",
+            "sha256": "sha256-14TztORKynlHS277k+W7FN1kgQD0FFu5W07wxgCDFS0=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v3.1.0"
+    },
     "pixy2": {
         "cargoLocks": null,
         "date": "2024-07-17",

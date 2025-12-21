@@ -41,3 +41,7 @@ fetch.github = "dwyl/english-words"
 [fcitx5-themes-candlelight]
 src.git = "https://github.com/thep0y/fcitx5-themes-candlelight.git"
 fetch.github = "thep0y/fcitx5-themes-candlelight"
+
+[mm-geofeed-verifier]
+src.github = "maxmind/mm-geofeed-verifier"
+fetch.github = "maxmind/mm-geofeed-verifier"

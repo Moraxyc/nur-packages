@@ -1,20 +1,13 @@
 {
   lib,
   buildGoModule,
-  fetchFromGitHub,
   versionCheckHook,
+  sources,
 }:
 
 buildGoModule (finalAttrs: {
   pname = "mm-geofeed-verifier";
-  version = "3.1.0";
-
-  src = fetchFromGitHub {
-    owner = "maxmind";
-    repo = "mm-geofeed-verifier";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-14TztORKynlHS277k+W7FN1kgQD0FFu5W07wxgCDFS0=";
-  };
+  inherit (sources.mm-geofeed-verifier) src version;
 
   vendorHash = "sha256-FVEsxE7B5FA1X+hWq7bloaQs69qFOUkeYv5p22SKkh0=";
 
