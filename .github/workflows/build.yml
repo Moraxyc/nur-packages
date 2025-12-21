@@ -6,8 +6,6 @@ on:
       - main
     paths:
       - "pkgs/**"
-  schedule:
-    - cron: "35 3 * * *"
   workflow_dispatch:
   workflow_run:
     workflows: ["Auto update packages"]
