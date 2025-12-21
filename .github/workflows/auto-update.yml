@@ -51,7 +51,3 @@ jobs:
           git add _sources
           git commit -m "chore: update nvfetcher" || echo "No changes to commit"
           git push
-
-      - name: Trigger NUR update
-        run: |
-          curl -XPOST "https://nur-update.nix-community.org/update?repo=moraxyc"
