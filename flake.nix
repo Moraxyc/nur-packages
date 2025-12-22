@@ -19,6 +19,7 @@
         ./flake-modules/nixpkgs-options.nix
         ./flake-modules/by-name.nix
         ./flake-modules/modules.nix
+        ./flake-modules/nix-config.nix
       ];
       systems = import inputs.systems;
       flake = {

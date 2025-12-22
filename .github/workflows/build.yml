@@ -55,7 +55,8 @@ jobs:
           nix-fast-build --flake .#ciPackages.${{ matrix.label }} \
             --system ${{ matrix.label }} \
             --no-nom --skip-cached \
-            --attic-cache ${{ vars.ATTIC_CACHE }}
+            --attic-cache ${{ vars.ATTIC_CACHE }} \
+            --option accept-flake-config true
   finish:
     runs-on: ubuntu-latest
     needs: build
