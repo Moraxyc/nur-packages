@@ -1,10 +1,9 @@
 {
-  bark-server,
+  upstream,
   sources,
 }:
-bark-server.overrideAttrs (
+upstream.bark-server.overrideAttrs (
   finalAttrs: prevAttrs: {
-    pname = "bark-server-dev";
     inherit (sources.bark-server) version;
 
     src = prevAttrs.src.override {
