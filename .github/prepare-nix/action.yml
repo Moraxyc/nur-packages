@@ -62,7 +62,6 @@ runs:
         extra_args=""
         if [ -f "flake.nix" ]; then
           extra_args="--inputs-from . --accept-flake-config"
-        else
         fi
 
         nix profile add "${pkgs[@]/#/nixpkgs#}" $extra_args
