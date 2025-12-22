@@ -34,6 +34,7 @@ runs:
         github_access_token: ${{ inputs.GH_PAT }}
         extra_nix_config: |
           build-dir = /nix/build
+          experimental-features = nix-command flakes ca-derivations auto-allocate-uids cgroups pipe-operators dynamic-derivations recursive-nix
           system-features = nixos-test benchmark big-parallel kvm
           keep-going = false
           accept-flake-config = true
