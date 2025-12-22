@@ -20,6 +20,7 @@
         ./flake-modules/by-name.nix
         ./flake-modules/modules.nix
         ./flake-modules/nix-config.nix
+        ./flake-modules/overlay.nix
       ];
       systems = import inputs.systems;
       flake = {
