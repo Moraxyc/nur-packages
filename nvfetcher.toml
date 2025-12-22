@@ -6,6 +6,10 @@ fetch.github = "lolishinshi/exloli-next"
 src.git = "https://github.com/Kioubit/FlapAlerted"
 fetch.github = "Kioubit/FlapAlerted"
 
+[flapalerted-stable]
+src.github = "Kioubit/FlapAlerted"
+fetch.github = "Kioubit/FlapAlerted"
+
 [pixy2]
 src.git = "https://github.com/charmedlabs/pixy2"
 fetch.github = "charmedlabs/pixy2"
@@ -45,3 +49,11 @@ fetch.github = "thep0y/fcitx5-themes-candlelight"
 [mm-geofeed-verifier]
 src.github = "maxmind/mm-geofeed-verifier"
 fetch.github = "maxmind/mm-geofeed-verifier"
+
+[bark-server-stable]
+src.github = "Finb/bark-server"
+fetch.github = "Finb/bark-server"
+
+[bark-server]
+src.git = "https://github.com/Finb/bark-server.git"
+fetch.github = "Finb/bark-server"
