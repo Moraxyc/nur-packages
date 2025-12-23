@@ -57,3 +57,11 @@ fetch.github = "Finb/bark-server"
 [bark-server]
 src.git = "https://github.com/Finb/bark-server.git"
 fetch.github = "Finb/bark-server"
+
+[watt-toolkit-x86_64-linux]
+src.github = "BeyondDimension/SteamTools"
+fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ver/Steam++_v$ver_linux_x64.tgz"
+
+[watt-toolkit-aarch64-linux]
+src.github = "BeyondDimension/SteamTools"
+fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ver/Steam++_v$ver_linux_arm64.tgz"

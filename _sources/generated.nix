@@ -144,18 +144,34 @@
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202512212214";
+    version = "202512222314";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512212214/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512222314/geoip.dat";
       sha256 = "sha256-y7H83opBnjZYxTp5VJI5F2595wdlzWReP3au0aR7WfM=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202512212214";
+    version = "202512222314";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512212214/geosite.dat";
-      sha256 = "sha256-YJW+1lYmMGNmxPCpJjykF1cXiuPVXCpYLhw2dNMwDAM=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512222314/geosite.dat";
+      sha256 = "sha256-MO4sknxXGbBQ9HFu+82gdCm2zBUuMAAnzBsk49IzQN0=";
+    };
+  };
+  watt-toolkit-aarch64-linux = {
+    pname = "watt-toolkit-aarch64-linux";
+    version = "3.0.0-rc.16";
+    src = fetchurl {
+      url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.0.0-rc.16/Steam++_v3.0.0-rc.16_linux_arm64.tgz";
+      sha256 = "sha256-xfzxxxMKsoMww9PzB/nvRcxqOqyn65escvxkzK9csCo=";
+    };
+  };
+  watt-toolkit-x86_64-linux = {
+    pname = "watt-toolkit-x86_64-linux";
+    version = "3.0.0-rc.16";
+    src = fetchurl {
+      url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.0.0-rc.16/Steam++_v3.0.0-rc.16_linux_x64.tgz";
+      sha256 = "sha256-mUk/gh8GPYwhs5OZzKorkNIMMKl+amFrwbTtH0AnHTI=";
     };
   };
 }

@@ -265,9 +265,9 @@
             "name": null,
             "sha256": "sha256-y7H83opBnjZYxTp5VJI5F2595wdlzWReP3au0aR7WfM=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512212214/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512222314/geoip.dat"
         },
-        "version": "202512212214"
+        "version": "202512222314"
     },
     "v2ray-rules-dat-geosite": {
         "cargoLocks": null,
@@ -278,10 +278,40 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-YJW+1lYmMGNmxPCpJjykF1cXiuPVXCpYLhw2dNMwDAM=",
+            "sha256": "sha256-MO4sknxXGbBQ9HFu+82gdCm2zBUuMAAnzBsk49IzQN0=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512212214/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512222314/geosite.dat"
         },
-        "version": "202512212214"
+        "version": "202512222314"
+    },
+    "watt-toolkit-aarch64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "watt-toolkit-aarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-xfzxxxMKsoMww9PzB/nvRcxqOqyn65escvxkzK9csCo=",
+            "type": "url",
+            "url": "https://github.com/BeyondDimension/SteamTools/releases/download/3.0.0-rc.16/Steam++_v3.0.0-rc.16_linux_arm64.tgz"
+        },
+        "version": "3.0.0-rc.16"
+    },
+    "watt-toolkit-x86_64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "watt-toolkit-x86_64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-mUk/gh8GPYwhs5OZzKorkNIMMKl+amFrwbTtH0AnHTI=",
+            "type": "url",
+            "url": "https://github.com/BeyondDimension/SteamTools/releases/download/3.0.0-rc.16/Steam++_v3.0.0-rc.16_linux_x64.tgz"
+        },
+        "version": "3.0.0-rc.16"
     }
 }
