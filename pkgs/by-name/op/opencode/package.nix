@@ -11,7 +11,7 @@ upstream.opencode.overrideAttrs (
         inherit (finalAttrs) version src;
 
         # nix-update auto -s node_modules
-        outputHash = "sha256-Ws/XERjxQSK8HIDrE/8608TB5gBe4qoFE9mmssry78Y=";
+        outputHash = "sha256-omSbcp/yKClsGbLiNJjeSL29CGKPbcem6f+nV13RjG4=";
       }
     );
 
