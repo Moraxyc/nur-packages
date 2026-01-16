@@ -1,9 +1,8 @@
 {
+  inputs',
   stdenv,
-  sources,
-  source ? sources.nvfetcher,
 }:
-(import source.src).packages.${stdenv.hostPlatform.system}.default.overrideAttrs (
+inputs'.nvfetcher.packages.default.overrideAttrs (
   finalAttrs: prevAttrs: {
     passthru = (prevAttrs.passthru or { }) // {
       _ignoreOverride = true;
