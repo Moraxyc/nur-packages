@@ -88,5 +88,6 @@ buildGoModule (finalAttrs: {
     ];
     maintainers = with lib.maintainers; [ moraxyc ];
     mainProgram = "bssl";
+    platforms = lib.platforms.linux;
   };
 })
