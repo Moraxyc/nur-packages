@@ -1,0 +1,26 @@
+diff --git a/scripts/generate-git-info.ts b/scripts/generate-git-info.ts
+index 53b54b7..71adf20 100644
+--- a/scripts/generate-git-info.ts
++++ b/scripts/generate-git-info.ts
+@@ -1,18 +1,11 @@
+-import { execSync } from 'node:child_process'
+ import fs from 'fs-extra'
+ import { GIT_SUMMARY_INFO_PATH, TAURI_APP_TEMP_DIR } from './utils/env'
+ import { consola } from './utils/logger'
+ 
+ async function main() {
+-  const [hash, author, time] = execSync(
+-    "git show --pretty=format:'%H,%cn,%cI' --no-patch --no-notes",
+-    {
+-      cwd: process.cwd(),
+-    },
+-  )
+-    .toString()
+-    .replace(/'/g, '')
+-    .split(',')
++  const hash = process.env.COMMIT_HASH;
++  const author = process.env.COMMIT_AUTHOR;
++  const time = process.env.COMMIT_DATE;
+ 
+   const summary = {
+     hash,

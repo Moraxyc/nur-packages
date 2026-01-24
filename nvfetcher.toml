@@ -39,11 +39,11 @@ src.git = "https://github.com/marsqing/libinput-three-finger-drag"
 fetch.github = "marsqing/libinput-three-finger-drag"
 
 [english_words]
-src.git = "https://github.com/dwyl/english-words.git"
+src.git = "https://github.com/dwyl/english-words"
 fetch.github = "dwyl/english-words"
 
 [fcitx5-themes-candlelight]
-src.git = "https://github.com/thep0y/fcitx5-themes-candlelight.git"
+src.git = "https://github.com/thep0y/fcitx5-themes-candlelight"
 fetch.github = "thep0y/fcitx5-themes-candlelight"
 
 [mm-geofeed-verifier]
@@ -55,7 +55,7 @@ src.github = "Finb/bark-server"
 fetch.github = "Finb/bark-server"
 
 [bark-server]
-src.git = "https://github.com/Finb/bark-server.git"
+src.git = "https://github.com/Finb/bark-server"
 fetch.github = "Finb/bark-server"
 
 [watt-toolkit-x86_64-linux]
@@ -75,7 +75,7 @@ fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ve
 # fetch.github = "GZTimeWalker/GZCTF"
 
 [mautrix-telegramgo]
-src.git = "https://github.com/mautrix/telegramgo.git"
+src.git = "https://github.com/mautrix/telegramgo"
 fetch.github = "mautrix/telegramgo"
 
 [new-api]
@@ -87,7 +87,7 @@ src.github = "messense/aliyundrive-webdav"
 fetch.github = "messense/aliyundrive-webdav"
 
 [aliyundrive-webdav]
-src.git = "https://github.com/messense/aliyundrive-webdav.git"
+src.git = "https://github.com/messense/aliyundrive-webdav"
 fetch.github = "messense/aliyundrive-webdav"
 
 [mpv-danmaku-stable]
@@ -95,7 +95,7 @@ src.github = "moraxyc/mpv-danmaku"
 fetch.github = "moraxyc/mpv-danmaku"
 
 [mpv-danmaku]
-src.git = "https://github.com/moraxyc/mpv-danmaku.git"
+src.git = "https://github.com/moraxyc/mpv-danmaku"
 fetch.github = "moraxyc/mpv-danmaku"
 cargo_lock = ["Cargo.lock"]
 
@@ -110,3 +110,21 @@ fetch.github = "cyanheads/git-mcp-server"
 [boringssl-oqs]
 fetch.github = "open-quantum-safe/boringssl"
 src.github = "open-quantum-safe/boringssl"
+
+[clash-nyanpasu-stable]
+src.github = "LibNyanpasu/clash-nyanpasu"
+fetch.github = "LibNyanpasu/clash-nyanpasu"
+
+[clash-nyanpasu]
+src.git = "https://github.com/LibNyanpasu/clash-nyanpasu"
+fetch.github = "LibNyanpasu/clash-nyanpasu"
+cargo_lock = ["backend/Cargo.lock"]
+
+[nyanpasu-service-stable]
+src.github = "LibNyanpasu/nyanpasu-service"
+fetch.github = "LibNyanpasu/nyanpasu-service"
+
+[nyanpasu-service]
+src.git = "https://github.com/LibNyanpasu/nyanpasu-service"
+fetch.github = "LibNyanpasu/nyanpasu-service"
+cargo_lock = ["Cargo.lock"]
