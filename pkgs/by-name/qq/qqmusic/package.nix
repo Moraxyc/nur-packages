@@ -42,6 +42,7 @@ else
       passthru = {
         # nix-update auto -u
         updateScript = ./update.sh;
+        _ignoreOverride = true;
       };
 
       meta = upstream.qqmusic.meta // {
