@@ -52,27 +52,6 @@
         "type": "github"
       }
     },
-    "niri": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": []
-      },
-      "locked": {
-        "lastModified": 1772207631,
-        "narHash": "sha256-Jkkg+KqshFO3CbTszVVpkKN2AOObYz+wMsM3ONo1z5g=",
-        "owner": "YaLTeR",
-        "repo": "niri",
-        "rev": "e708f546153f74acf33eb183b3b2992587a701e5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "YaLTeR",
-        "repo": "niri",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1772624091,
@@ -145,7 +124,6 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "niri": "niri",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nvfetcher": "nvfetcher",
