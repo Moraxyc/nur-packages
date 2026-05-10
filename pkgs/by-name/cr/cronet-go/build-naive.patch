@@ -11,14 +11,23 @@ Taken from https://github.com/Prince213/nix-packages/blob/main/pkgs/sing-box-bet
 
  	outputDirectory := getOutputDirectory(t)
 
-@@ -244,16 +244,15 @@ func buildTarget(t Target) {
+@@ -244,16 +244,24 @@ func buildTarget(t Target) {
  		"optimize_for_size=true",
  		fmt.Sprintf("target_os=\"%s\"", t.OS),
  		fmt.Sprintf("target_cpu=\"%s\"", t.CPU),
-+		"clang_base_path=\"@clang_base_path@\"",
 +		"clang_use_chrome_plugins=false",
  	}
-
++	if clangBasePath := os.Getenv("CRONET_GO_CLANG_BASE_PATH"); clangBasePath != "" {
++		args = append(args, fmt.Sprintf("clang_base_path=\"%s\"", clangBasePath))
++	}
++	if os.Getenv("USE_UNBUNDLE_TOOLCHAIN") == "1" {
++		args = append(args,
++			"custom_toolchain=\"//build/toolchain/linux/unbundle:default\"",
++			"host_toolchain=\"//build/toolchain/linux/unbundle:host\"",
++			"use_lld=false",
++		)
++	}
+ 
  	switch t.OS {
  	case "mac":
  		args = append(args, "use_sysroot=false")
@@ -31,7 +40,7 @@ Taken from https://github.com/Prince213/nix-packages/blob/main/pkgs/sing-box-bet
  		if t.CPU == "x64" {
  			args = append(args, "use_cfi_icall=false", "is_cfi=false")
  		}
-@@ -316,7 +315,7 @@ func buildTarget(t Target) {
+@@ -316,7 +326,7 @@ func buildTarget(t Target) {
 
  	gnArgs := strings.Join(args, " ")
 

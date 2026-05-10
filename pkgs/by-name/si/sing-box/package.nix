@@ -30,7 +30,9 @@ nixpkgs.sing-box.overrideAttrs (previousAttrs: {
 
   nativeBuildInputs =
     (previousAttrs.nativeBuildInputs or [ ])
-    ++ lib.optional (withNaiveOutbound && withStaticCronet) buildPackages.llvmPackages.bintools;
+    ++ lib.optional (
+      withNaiveOutbound && withStaticCronet
+    ) buildPackages.buildPackages.llvmPackages.bintools;
 
   tags =
     (previousAttrs.tags or [ ])
