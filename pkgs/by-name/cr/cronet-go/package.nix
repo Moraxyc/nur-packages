@@ -2,19 +2,28 @@
   lib,
   stdenvNoCC,
   symlinkJoin,
-  llvmPackages,
+  fetchurl,
   buildPackages,
   apple-sdk_15,
   darwin,
   ninja,
   python3,
   xcbuild,
+  llvmPackages ? buildPackages.llvmPackages,
 
   sources,
   source ? sources.cronet-go,
+
+  withPgo ? stdenvNoCC.hostPlatform == stdenvNoCC.buildPlatform,
 }:
 let
-  nativeLlvm = buildPackages.buildPackages.llvmPackages;
+  llvmPgoPackageStr = "llvmPackages_22";
+  llvm = if withPgo then buildPackages.${llvmPgoPackageStr} else llvmPackages;
+  nativeLlvm =
+    if withPgo then
+      buildPackages.buildPackages.${llvmPgoPackageStr}
+    else
+      buildPackages.buildPackages.llvmPackages;
   isCrossLinux =
     stdenvNoCC.hostPlatform.isLinux && stdenvNoCC.hostPlatform != stdenvNoCC.buildPlatform;
   chromiumLinuxTargetTriples = {
@@ -40,6 +49,15 @@ let
     "x86_64-darwin"
     "aarch64-darwin"
   ];
+  pgoProfiles = lib.mapAttrs (
+    _: v:
+    fetchurl {
+      name = v.name;
+      url = "https://storage.googleapis.com/chromium-optimization-profiles/pgo_profiles/${v.name}";
+      hash = v.hash;
+    }
+  ) (lib.importJSON ./pgo.json);
+
 in
 stdenvNoCC.mkDerivation (finalAttrs: {
   inherit (source) pname version src;
@@ -59,6 +77,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     substituteInPlace naiveproxy/src/build/config/mac/BUILD.gn \
       --replace-fail 'common_mac_flags = []' 'common_mac_flags = [ "-I${lib.getInclude darwin.libresolv}/include" ]'
+  ''
+  + lib.optionalString withPgo ''
+    mkdir -p naiveproxy/src/chrome/build/pgo_profiles
+    cp ${finalAttrs.passthru.pgoProfile} naiveproxy/src/chrome/build/pgo_profiles/${finalAttrs.passthru.pgoProfile.name}
   '';
 
   outputs = [
@@ -68,7 +90,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   ];
 
   nativeBuildInputs = [
-    buildPackages.llvmPackages.bintools
+    llvm.bintools
     ninja
     python3
   ]
@@ -80,13 +102,14 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   env = {
     CRONET_GO_CLANG_BASE_PATH = finalAttrs.passthru.clangBasePath.outPath;
+    CRONET_GO_ENABLE_PGO = lib.optionalString withPgo "1";
   }
   // lib.optionalAttrs isCrossLinux {
-    CC = lib.getExe' finalAttrs.passthru.clangBasePath "${llvmPackages.stdenv.cc.targetPrefix}cc";
-    CXX = lib.getExe' finalAttrs.passthru.clangBasePath "${llvmPackages.stdenv.cc.targetPrefix}c++";
-    AR = lib.getExe' llvmPackages.bintools "${llvmPackages.stdenv.cc.targetPrefix}ar";
-    NM = lib.getExe' llvmPackages.bintools "${llvmPackages.stdenv.cc.targetPrefix}nm";
-    READELF = lib.getExe' llvmPackages.bintools "${llvmPackages.stdenv.cc.targetPrefix}readelf";
+    CC = lib.getExe' finalAttrs.passthru.clangBasePath "${llvm.stdenv.cc.targetPrefix}cc";
+    CXX = lib.getExe' finalAttrs.passthru.clangBasePath "${llvm.stdenv.cc.targetPrefix}c++";
+    AR = lib.getExe' llvm.bintools "${llvm.stdenv.cc.targetPrefix}ar";
+    NM = lib.getExe' llvm.bintools "${llvm.stdenv.cc.targetPrefix}nm";
+    READELF = lib.getExe' llvm.bintools "${llvm.stdenv.cc.targetPrefix}readelf";
     BUILD_CC = lib.getExe' nativeLlvm.stdenv.cc "cc";
     BUILD_CXX = lib.getExe' nativeLlvm.stdenv.cc "c++";
     BUILD_AR = lib.getExe' nativeLlvm.bintools "ar";
@@ -125,20 +148,29 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   '';
 
   passthru = {
-    # nix-update auto -s build-naive --override-filename pkgs/by-name/cr/cronet-go/build-naive.nix
+    # nix-update auto -u
+    updateScript = ./update.sh;
     build-naive = buildPackages.callPackage ./build-naive.nix {
       source = buildPackages.sources.cronet-go;
     };
     clangBasePath = symlinkJoin {
       name = "llvmCcAndBintools";
       paths = [
-        llvmPackages.llvm
-        llvmPackages.stdenv.cc
+        llvm.llvm
+        llvm.stdenv.cc
       ];
     };
     chromiumLinuxTargetTriple = chromiumLinuxTargetTriples.${stdenvNoCC.hostPlatform.config} or null;
     goTarget = "${stdenvNoCC.hostPlatform.go.GOOS}/${stdenvNoCC.hostPlatform.go.GOARCH}";
-    _ignoreOverride = true;
+    pgoProfile =
+      pgoProfiles.${
+        if stdenvNoCC.hostPlatform.isDarwin then
+          stdenvNoCC.hostPlatform.system
+        else if stdenvNoCC.hostPlatform.isLinux then
+          "any-linux"
+        else
+          throw "Unsupported system for PGO: ${stdenvNoCC.hostPlatform.system}"
+      };
   };
 
   meta = {
