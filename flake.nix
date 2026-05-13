@@ -43,7 +43,7 @@
       flake = {
         lib = import ./lib;
         hydraJobs = {
-          inherit (self) ciPackages;
+          inherit (self) ciPackages nixosTests;
         };
       };
     };
