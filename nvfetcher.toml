@@ -134,10 +134,10 @@ src.github = "happyDomain/happydeliver"
 fetch.github = "happyDomain/happydeliver"
 extract = ["web/package-lock.json", "web/package.json"]
 
-[yass]
-src.github = "hukeyue/yass"
-fetch.github = "hukeyue/yass"
-git.fetchSubmodules = true
+# [yass]
+# src.github = "hukeyue/yass"
+# fetch.github = "hukeyue/yass"
+# git.fetchSubmodules = true
 
 [superpowers-skills]
 src.git = "https://github.com/obra/superpowers.git"
