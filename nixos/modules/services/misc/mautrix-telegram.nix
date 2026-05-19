@@ -151,7 +151,7 @@ in
         UMask = "0027";
         EnvironmentFile = cfg.environmentFile;
 
-        ExecStart = "${lib.getExe cfg.package} --config='${settingsFile}";
+        ExecStart = "${lib.getExe cfg.package} --config='${settingsFile}'";
       };
     };
   };
