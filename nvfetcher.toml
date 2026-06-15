@@ -72,6 +72,11 @@ fetch.url = "file:///dev/null"
 src.git = "https://github.com/dwyl/english-words.git"
 fetch.github = "dwyl/english-words"
 
+[elio]
+src.github = "elio-fm/elio"
+fetch.github = "elio-fm/elio"
+cargo_lock = ["Cargo.lock"]
+
 [exloli-next]
 src.git = "https://github.com/lolishinshi/exloli-next"
 fetch.github = "lolishinshi/exloli-next"
