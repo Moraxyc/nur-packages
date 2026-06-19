@@ -210,6 +210,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "--skip=enhance::script::js::test::test_process_honey_with_fetch"
   ];
 
+  # nix-update auto -u
+  passthru.updateScript = ./update.sh;
+
   meta = {
     description = "Clash GUI based on Tauri";
     homepage = "https://github.com/libnyanpasu/clash-nyanpasu";
