@@ -3,8 +3,9 @@
   sources,
 
   source ? sources.nezha,
+  withThemes ? [ ],
 }:
-nixpkgs.nezha.overrideAttrs (
+(nixpkgs.nezha.override { inherit withThemes; }).overrideAttrs (
   finalAttrs: prevAttrs: {
     inherit (source) version src;
 
