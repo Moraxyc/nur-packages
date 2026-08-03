@@ -4,6 +4,7 @@ let
 
   deprecatedPkgs = {
     # Upstreamed
+    cronet-go = "upstreamed";
     flapalerted = "upstreamed";
     sing-box = "upstreamed";
     sub-store = "upstreamed";
