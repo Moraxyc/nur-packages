@@ -1,12 +1,15 @@
 {
   lib,
+  stdenv,
+  bubblewrap,
   buildNpmPackage,
   fetchPnpmDeps,
   makeWrapper,
   nodejs-slim,
-  pnpm_11,
   pnpmConfigHook,
+  pnpm_11,
   python3,
+  ripgrep,
   versionCheckHook,
   yq-go,
 
@@ -99,6 +102,20 @@ buildNpmPackage (finalAttrs: {
 
     runHook postInstall
   '';
+
+  postFixup =
+    let
+      runtimeDeps = [
+        ripgrep
+      ]
+      ++ lib.optionals stdenv.hostPlatform.isLinux [
+        bubblewrap
+      ];
+    in
+    ''
+      wrapProgram $out/bin/dsh \
+        --prefix PATH : ${lib.makeBinPath runtimeDeps}
+    '';
 
   doInstallCheck = true;
   nativeInstallCheckInputs = [ versionCheckHook ];
