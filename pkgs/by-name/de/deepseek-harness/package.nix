@@ -113,7 +113,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
               );
             };
         "${name}/cordis.patch.yml" =
-          writeText "${lib.strings.sanitizeDerivationName "dsh-profile-${name}"}-cordis.patch.yml" profile.patch;
+          writeText "${lib.strings.sanitizeDerivationName "dsh-profile-${name}"}-cordis.patch.yml"
+            (profile.patch or "[]");
         "${name}/pnpm-workspace.yaml" =
           (formats.json { }).generate
             "${lib.strings.sanitizeDerivationName "dsh-profile-${name}"}-pnpm-workspace.yaml"
