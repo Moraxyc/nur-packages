@@ -49,7 +49,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   patches = [
     ./fix-local-inlang-plugins.patch
-    ./fix-nyanpasu-utils-package-entry.patch
   ];
 
   cargoRoot = "backend";
