@@ -668,6 +668,17 @@
       "package.json" = ./. + "/sha256-n2VQpu7LnEmiprtyIL4H7AxNSkplBLPEjbYhFA6njlY=/package.json";
     };
   };
+  pi-token-speed = {
+    pname = "pi-token-speed";
+    version = "0.12.0";
+    src = fetchFromGitHub {
+      owner = "gsanhueza";
+      repo = "pi-token-speed";
+      rev = "0.12.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-P6u5Og9SkEY6UQdx8IsV4xl4gBECUXHeofi6FxGDm/Q=";
+    };
+  };
   picoclaw = {
     pname = "picoclaw";
     version = "v0.3.1";

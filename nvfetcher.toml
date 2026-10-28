@@ -249,6 +249,10 @@ src.github = "nicobailon/pi-subagents"
 fetch.github = "nicobailon/pi-subagents"
 extract = ["package-lock.json", "package.json"]
 
+[pi-token-speed]
+src.github_tag = "gsanhueza/pi-token-speed"
+fetch.github = "gsanhueza/pi-token-speed"
+
 [picoclaw]
 src.github_tag = "sipeed/picoclaw"
 fetch.github = "sipeed/picoclaw"

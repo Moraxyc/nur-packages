@@ -1135,6 +1135,27 @@
         },
         "version": "v0.83.0"
     },
+    "pi-token-speed": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "pi-token-speed",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "gsanhueza",
+            "repo": "pi-token-speed",
+            "rev": "0.12.0",
+            "sha256": "sha256-P6u5Og9SkEY6UQdx8IsV4xl4gBECUXHeofi6FxGDm/Q=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "0.12.0"
+    },
     "picoclaw": {
         "cargoLock": null,
         "date": null,
