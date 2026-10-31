@@ -1,5 +1,5 @@
 diff --git a/apps/desktop/main/index.ts b/apps/desktop/main/index.ts
-index 034955d..916acd5 100644
+index 3ba324c..916acd5 100644
 --- a/apps/desktop/main/index.ts
 +++ b/apps/desktop/main/index.ts
 @@ -66,13 +66,11 @@ import { createHostLog, type HostLog } from './host-log';
@@ -32,7 +32,7 @@ index 034955d..916acd5 100644
  const nativeWayland = isNativeWaylandSession();
  
  function liveDisplayBackend(): string {
-@@ -589,41 +587,7 @@ async function confirmNativeUpdateHealth(healthy: boolean) {
+@@ -589,46 +587,7 @@ async function confirmNativeUpdateHealth(healthy: boolean) {
    if (target) await nativeUpdateHealth(appUpdateRoot, app.getVersion(), healthy, target);
  }
  const updaterHandle = createUpdater({
@@ -63,6 +63,11 @@ index 034955d..916acd5 100644
 -                updateIdentity.packageKind === 'portable'
 -                  ? (process.env.PORTABLE_EXECUTABLE_FILE ?? '')
 -                  : (process.env.APPIMAGE ?? ''),
+-              targetKind:
+-                updateIdentity.packageKind === 'portable' ||
+-                updateIdentity.packageKind === 'AppImage'
+-                  ? updateIdentity.packageKind
+-                  : undefined,
 -              candidate,
 -              package: file,
 -              quit: () => {
@@ -75,7 +80,7 @@ index 034955d..916acd5 100644
    emit: (channel, payload) => {
      writeHostLog(`updater ${payload.state}`);
      fanoutEvent(channel, payload);
-@@ -668,7 +632,7 @@ function packagedRendererRoot(): string | undefined {
+@@ -673,7 +632,7 @@ function packagedRendererRoot(): string | undefined {
    if (!app.isPackaged) {
      return undefined;
    }
@@ -84,7 +89,7 @@ index 034955d..916acd5 100644
    if (existsSync(path.join(candidate, 'index.html'))) {
      return candidate;
    }
-@@ -1228,7 +1192,7 @@ function startSupervisor(): Promise<void> {
+@@ -1233,7 +1192,7 @@ function startSupervisor(): Promise<void> {
    const launch = resolveCoreLaunch({
      env: process.env,
      stagedDir: path.join(desktopRoot, 'resources', 'core'),
@@ -93,7 +98,7 @@ index 034955d..916acd5 100644
      cargoTargetDir: process.env.CARGO_TARGET_DIR,
      repoRoot,
      packaged: app.isPackaged,
-@@ -1348,7 +1312,7 @@ if (
+@@ -1353,7 +1312,7 @@ if (
        await recoverNativeUpdate(
          appUpdateRoot,
          path.join(
