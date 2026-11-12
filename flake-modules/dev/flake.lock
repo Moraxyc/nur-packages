@@ -13,11 +13,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794489390,
-        "narHash": "sha256-8hnUA1AJxXP1j1NXLPCEWN1VrNQud8AFZGZiNBWA7+E=",
+        "lastModified": 1794493691,
+        "narHash": "sha256-kUhXECQ6kJQ8Ga72yqW48UvmmIMjCcdirfMloNuy1AE=",
         "owner": "Moraxyc",
         "repo": "fetchrix",
-        "rev": "596f73cf8e6e0f4d17b0b5e81f3676f8d412f99d",
+        "rev": "306af003cdd707bf548a67e14119b535ef882358",
         "type": "github"
       },
       "original": {
