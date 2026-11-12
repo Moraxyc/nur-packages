@@ -99,13 +99,12 @@ buildNpmPackage (finalAttrs: {
   '';
 
   passthru = {
-    # nix-update auto --subpackage=ztmkworld
     ztmkworld = buildGoModule {
       pname = "ztmkworld";
       inherit (finalAttrs) version src;
 
       modRoot = "ztnodeid";
-      vendorHash = "sha256-ry0usPZf6/Nsj3GcIKG34/EkhJ+9QJ1fK2VF69z+z+8=";
+      vendorHash = source.ztmkworldVendorHash;
 
       subPackages = [ "cmd/mkworld" ];
       ldflags = [ "-s" ];

@@ -60,7 +60,7 @@ jobs:
                   chmod -R +w .
                   sed -i "s|./../../default.nix|$NIXPKGS|g" maintainers/scripts/update.nix
 
-            - name: Update vendor hashes (nix-update)
+            - name: Run custom package updaters (nix-update)
               run: |
                   export NIXPKGS_ALLOW_UNFREE=1
                   old_json=$(git show HEAD:_sources/lock.json 2>/dev/null || echo '{"packages":{}}')
@@ -71,7 +71,7 @@ jobs:
                       '$new.packages | keys[] | . as $k | select($old.packages[$k].version != $new.packages[$k].version)')
 
                   if [ -z "$changed_sources" ]; then
-                      echo "No fetchrix source changes detected, skipping nix-update"
+                      echo "No fetchrix source changes detected, skipping custom updaters"
                       exit 0
                   fi
 
@@ -97,6 +97,6 @@ jobs:
             - name: Commit changes
               run: |
                   git add _sources pkgs/by-name
-                  git diff --staged --quiet || git commit -m "chore: update fetchrix & vendor hashes"
+                  git diff --staged --quiet || git commit -m "chore: update package sources and dependencies"
                   git push
                   curl -XPOST https://nur-update.nix-community.org/update?repo=moraxyc

@@ -10,6 +10,7 @@ _: {
     let
       updater = pkgs.writeShellScriptBin "update-packages" ''
         set -euo pipefail
+        export NIXPKGS_ALLOW_UNFREE=1
         export PATH=${
           lib.makeBinPath [
             pkgs.coreutils

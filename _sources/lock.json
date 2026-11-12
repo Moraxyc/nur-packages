@@ -57,9 +57,12 @@
       "derived": {
         "npmDeps": {
           "lockfile": "artex/src/web/package-lock.json"
+        },
+        "vendorHash": {
+          "hash": "sha256-bLpP+BEKc6GqLWbhpGYQ/BJy6m146WLUVHhUO8ev948="
         }
       },
-      "fingerprint": "sha256-OW4AgnTaK4u897dkRbfHC0c95+AkGzgrxITTKWg8euo="
+      "fingerprint": "sha256-PfKZVsH4boxC6dGxRRpGYtQF+iHnlVuQhplgidbywUM="
     },
     "bark-server": {
       "version": "2.4.0-unstable-2026-11-06",
@@ -72,7 +75,12 @@
         "rev": "a365aa9ddc9362495efffb3db4358b7c12beb963",
         "hash": "sha256-TLWvJGQRi0BlOHlR33EnfIdrB7zG8PeivvY0S99zOXM="
       },
-      "fingerprint": "sha256-DXSWDsElOKdQtnHOP7hK5MksudWtMzXTZy2FXa5eVMo="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-PXrslg24bxdG5PTkjS3LacJniZx5nSgki24mc9BcjaQ="
+        }
+      },
+      "fingerprint": "sha256-19K58xslpcJZbIs8eH4o5Pkm1Jcde0YS6I8gTAdmEnE="
     },
     "boringssl-oqs": {
       "version": "OQS-BoringSSL-snapshot-2025-01",
@@ -84,7 +92,12 @@
         "rev": "OQS-BoringSSL-snapshot-2025-01",
         "hash": "sha256-zVZgAvq6V85hxO79Ct8s+VVyf9yPa/YbRL4D5z31qEs="
       },
-      "fingerprint": "sha256-h6bkwYHwtzaZTeMnP1o/rhre1cD2HYIQhP3lk/WKItM="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-jcV7dZZITkvzqKq1EQ4qLiGar568WsDPLtxMvBoh7B8="
+        }
+      },
+      "fingerprint": "sha256-2oqfnz+z58NLkA5td+pM7EuS4K0RjpG1WdXsdVaLvZY="
     },
     "clash-nyanpasu": {
       "version": "2.0.1-unstable-2026-11-11",
@@ -126,7 +139,12 @@
         "rev": "v8.0.67",
         "hash": "sha256-njk9i5JbHvJ3lTB7Bn0wTxFtmcJ5MEokgdOHNhzDPPY="
       },
-      "fingerprint": "sha256-dO+ZoPHPCs/CGZCs9/wQ1IG60aKaBgn9ER1e4qH05wo="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-02Qqrs9lQ0kE+Tnk/SWvlkLXGSh8RQPxRawFZogRYNc="
+        }
+      },
+      "fingerprint": "sha256-0ZOszgPQKtup+CvOCK4zA28HzJnx0SDYVVtsN6lPoR8="
     },
     "cpa-usage-keeper": {
       "version": "2.1.0-unstable-2026-11-11",
@@ -142,9 +160,12 @@
       "derived": {
         "npmDeps": {
           "lockfile": "cpa-usage-keeper/src/web/package-lock.json"
+        },
+        "vendorHash": {
+          "hash": "sha256-kUPQ41UsZX86WNdeYGy914G3Pk/v/WcOfVw8Unb9SE4="
         }
       },
-      "fingerprint": "sha256-q9LdrWysOvCFU3beH/MoKvytXQaiFrg3Dv5uKTIl0MY="
+      "fingerprint": "sha256-klw1I8Gyyya7pGDq2zSPFRJN6KsZkHFPtsiYx0SS/YE="
     },
     "dae": {
       "version": "2.1.1-unstable-2026-11-09",
@@ -158,7 +179,12 @@
         "hash": "sha256-lBooE12735YST7kQeG21IW+kHNluW0n6bsEwIALjo+w=",
         "fetchSubmodules": true
       },
-      "fingerprint": "sha256-oq0v1Dw0azBDe4f8PvQ+MqaDNZfAUzyCZ1aidpPIuLI="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-N2noQXRV9Vewie4PiWkjDeX6U2+kF1kQ9L10kZ5X/LI="
+        }
+      },
+      "fingerprint": "sha256-DAk+AGRkm0Fn18SqYMF8qMu8Mha+bMMrO5BOrKjmWUs="
     },
     "dell-idrac-fan-controller": {
       "version": "1.108",
@@ -318,9 +344,12 @@
       "derived": {
         "npmDeps": {
           "lockfile": "happydeliver/src/web/package-lock.json"
+        },
+        "vendorHash": {
+          "hash": "sha256-4mQ3/Hc+Ow2MYSNsnACopDhTblCs593Y4uTbtKRWWks="
         }
       },
-      "fingerprint": "sha256-suAQSnkhtdzHETJ3Mzes5QeJHRQuej05WuW3wHXh6ps="
+      "fingerprint": "sha256-hyQ1jD39LNwSLQ85omJuvsUpbRv+Rc0TJKXAHH9Ng/g="
     },
     "headscale-ui": {
       "version": "0-unstable-2026-03-16",
@@ -382,7 +411,12 @@
         "rev": "v1.1.0",
         "hash": "sha256-Mz+pkJA+/mX1BwxXnAP41eitaJMzOFiNh0U9SCJx0iU="
       },
-      "fingerprint": "sha256-GPVVgCNnl1lBbdj518gkraieSoeCICBtQVbErqpeFM4="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-xjnaCKwCduaWfvXI5NCHmrMqLzADxiYuXVzgyz0jUGc="
+        }
+      },
+      "fingerprint": "sha256-OQm+NVjyhdgeM8gNfLr3Vq7mdt4gBlpJ+PyQBjCfaPg="
     },
     "jiufenxuezhang-ielts": {
       "version": "0.9.20-rc.1",
@@ -443,7 +477,12 @@
         "rev": "v0.2610.0",
         "hash": "sha256-2oHtqtpFhNr+v49nMSe33RGDj+MQV2D/+8JX+YYWi+0="
       },
-      "fingerprint": "sha256-vy+PtrM/mAkxruCOyERA2+evgvK1vlHRoxNwQQICwEE="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-JbnlJnCtIKC3rpO2mBa7DvEFeWuq9tpvN9H+MoQ5VV0="
+        }
+      },
+      "fingerprint": "sha256-qEsTIMwmqKOKkslNEm7UH0CYmjGEIqCEWLcRhb19EGA="
     },
     "meta-rules-converter": {
       "version": "0-unstable-2025-12-01",
@@ -456,7 +495,12 @@
         "rev": "7dea27841a3579a633189830c98c08a0434e8b79",
         "hash": "sha256-PwM5EH4v4MWePVeSjIGjCSu1ACYCIQ/wVq4sBTbrF9M="
       },
-      "fingerprint": "sha256-orqiYH7hl6j7+zh4ktspK0KRhQwBw/3p1VBWpfUEQSk="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-LIBrejN3Uv0/oWZeSA4XxelfhtAws8VK1yD7xVzWQvM="
+        }
+      },
+      "fingerprint": "sha256-vR7sJIoluiLgop9ZZHZKD6Or/5XOXg5rf4u3QaTDtco="
     },
     "meta-rules-dat": {
       "version": "0-unstable-2026-11-11",
@@ -481,7 +525,12 @@
         "rev": "v1.1",
         "hash": "sha256-lwFBevf3iP90LgnfUqweCjPBJPr2vMFtRqQXXUC+cRA="
       },
-      "fingerprint": "sha256-Wy9Q3oxAYAwIL45v/esCo+25nTRml2t3O/D4xCnmCHM="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-FXvuojlMZRzi8TIQ2aPiDH7F9c+2dpe4PYzYWljfUIc="
+        }
+      },
+      "fingerprint": "sha256-89S+7AGIYHMJI9qdM+43aFrcG1e1mugSqI/NiPkj74o="
     },
     "microfetch": {
       "version": "0-unstable-2026-11-07",
@@ -511,7 +560,12 @@
         "rev": "v4.0.0",
         "hash": "sha256-QbILhdodWRV3J03YkV0uSYj0c7yaNHiD950US9JaE3s="
       },
-      "fingerprint": "sha256-CFH2TXpiPSD7GTSLpc2bbQjhfEtKn2fGr2n61VQ+hq4="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-zYPNcU2f+vX5GnhQ2PxVSW5HAGGlOq5Ii3nH8Sc4cKY="
+        }
+      },
+      "fingerprint": "sha256-o44sQxfLt/yYWgS+L/FJ97QIKdi7SKFXsj0fi43x4M4="
     },
     "mpv-danmaku": {
       "version": "1.9.0-unstable-2026-07-31",
@@ -646,7 +700,12 @@
         "rev": "e8d3e36db58fc390b62624c20c2ae1b5b9078546",
         "hash": "sha256-7T6YRBxqxKoOxzilItFGHDUdg6V4Lc3jJwO1KsT9VM0="
       },
-      "fingerprint": "sha256-ugepBEqxrxBIuFK0x6HmLcbQSrR+/jhT/7iuDhoaEZM="
+      "derived": {
+        "vendorHash": {
+          "hash": "sha256-N/gri6Xm/1UNZyaLCPLUAuWswJ/DeVdpnFWnF7pKPUo="
+        }
+      },
+      "fingerprint": "sha256-WGmfJFbGw9W5lvzrKu4NQ6W6PZD4mJsd7TFKiLbc9/Q="
     },
     "opencode-telegram-bot": {
       "version": "0.27.0",
@@ -787,7 +846,12 @@
         "rev": "v0.13.6",
         "hash": "sha256-2ZhEsR/CBvi8Wr/o1j4kfMWhYM9jSobMuY1weUtLzzU="
       },
-      "fingerprint": "sha256-mzRH8um0QT/NkBDw2VaY2aa8LmPdCei7+FmK+FbPLP0="
+      "derived": {
+        "pnpmDepsHash": {
+          "hash": "sha256-lEOEUBU8qdkkjWzqBzIwRS225b5g9BzrbN9YfL4OZKg="
+        }
+      },
+      "fingerprint": "sha256-sO6+e3cTxMxud2ka6gjVLoo7mlyA5XuzXcBiIaRwOqg="
     },
     "pi-simplify": {
       "version": "0.2.3",
@@ -1004,9 +1068,12 @@
       "derived": {
         "npmDeps": {
           "lockfile": "ztnet/src/package-lock.json"
+        },
+        "ztmkworldVendorHash": {
+          "hash": "sha256-ry0usPZf6/Nsj3GcIKG34/EkhJ+9QJ1fK2VF69z+z+8="
         }
       },
-      "fingerprint": "sha256-jWHaTKvwDLfTSRjH4V7e328EDspk2O392X7vajYJidA="
+      "fingerprint": "sha256-0FfXl9SwxTqrROILX8qbVZXGcc1rORvkJW25UvuQVUU="
     }
   }
 }

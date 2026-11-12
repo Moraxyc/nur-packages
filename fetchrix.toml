@@ -22,6 +22,10 @@ version = { source = "git", url = "https://github.com/RuoJi6/ARTEX.git", unstabl
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/RuoJi6/ARTEX.git", rev = "{version}" }
 
+[packages.artex.derive.vendorHash]
+strategy = "fod"
+attr = ".#artex.goModules"
+
 [packages.artex.derive.npmDeps]
 kind = "npm-deps"
 strategy = "lockfile"
@@ -32,10 +36,18 @@ version = { source = "git", url = "https://github.com/Finb/bark-server.git", uns
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/Finb/bark-server.git", rev = "{version}" }
 
+[packages.bark-server.derive.vendorHash]
+strategy = "fod"
+attr = ".#bark-server.goModules"
+
 [packages.boringssl-oqs]
 version = { source = "github-release", repo = "open-quantum-safe/boringssl" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "open-quantum-safe/boringssl", rev = "{version}" }
+
+[packages.boringssl-oqs.derive.vendorHash]
+strategy = "fod"
+attr = ".#boringssl-oqs.goModules"
 
 [packages.clash-nyanpasu]
 version = { source = "git", url = "https://github.com/libnyanpasu/clash-nyanpasu", unstable = { stable = { source = "github-release", repo = "libnyanpasu/clash-nyanpasu" } } }
@@ -52,10 +64,18 @@ version = { source = "github-release", repo = "router-for-me/cliproxyapi" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "router-for-me/cliproxyapi", rev = "{version}" }
 
+[packages.cliproxyapi.derive.vendorHash]
+strategy = "fod"
+attr = ".#cliproxyapi.goModules"
+
 [packages.cpa-usage-keeper]
 version = { source = "git", url = "https://github.com/Willxup/cpa-usage-keeper.git", unstable = { stable = { source = "github-release", repo = "Willxup/cpa-usage-keeper" } } }
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/Willxup/cpa-usage-keeper.git", rev = "{version}" }
+
+[packages.cpa-usage-keeper.derive.vendorHash]
+strategy = "fod"
+attr = ".#cpa-usage-keeper.goModules"
 
 [packages.cpa-usage-keeper.derive.npmDeps]
 kind = "npm-deps"
@@ -66,6 +86,10 @@ sub_dir = "web"
 version = { source = "git", url = "https://github.com/daeuniverse/dae.git", unstable = { stable = { source = "github-release", repo = "daeuniverse/dae" } } }
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/daeuniverse/dae.git", rev = "{version}", submodules = true }
+
+[packages.dae.derive.vendorHash]
+strategy = "fod"
+attr = ".#dae.goModules"
 
 [packages.dell-idrac-fan-controller]
 version = { source = "github-release", repo = "tigerblue77/Dell_iDRAC_fan_controller_Docker" }
@@ -139,6 +163,10 @@ version = { source = "github-release", repo = "happyDomain/happydeliver" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "happyDomain/happydeliver", rev = "{version}" }
 
+[packages.happydeliver.derive.vendorHash]
+strategy = "fod"
+attr = ".#happydeliver.goModules"
+
 [packages.happydeliver.derive.npmDeps]
 kind = "npm-deps"
 strategy = "lockfile"
@@ -173,6 +201,10 @@ version = { source = "github-release", repo = "apernet/hysteria-realm-server" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "apernet/hysteria-realm-server", rev = "{version}" }
 
+[packages.hysteria-realm-server.derive.vendorHash]
+strategy = "fod"
+attr = ".#hysteria-realm-server.goModules"
+
 [packages.jiufenxuezhang-ielts]
 version = { source = "regex", url = "https://static.9fnnn.com/electron/stable/latest-mac.yml", regex = "version: (\\S+)" }
 transform = ["strip-v"]
@@ -198,10 +230,18 @@ version = { source = "github-release", repo = "mautrix/telegram" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "mautrix/telegram", rev = "{version}" }
 
+[packages.mautrix-telegram.derive.vendorHash]
+strategy = "fod"
+attr = ".#mautrix-telegram.goModules"
+
 [packages.meta-rules-converter]
 version = { source = "git", url = "https://github.com/MetaCubeX/meta-rules-converter", unstable = { } }
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/MetaCubeX/meta-rules-converter", rev = "{version}" }
+
+[packages.meta-rules-converter.derive.vendorHash]
+strategy = "fod"
+attr = ".#meta-rules-converter.goModules"
 
 [packages.meta-rules-dat]
 version = { source = "git", url = "https://github.com/MetaCubeX/meta-rules-dat.git", branch = "release", unstable = { } }
@@ -212,6 +252,10 @@ fetch = { type = "git", url = "https://github.com/MetaCubeX/meta-rules-dat.git",
 version = { source = "github-release", repo = "metacubex/geo" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "metacubex/geo", rev = "{version}" }
+
+[packages.metacubex-geo.derive.vendorHash]
+strategy = "fod"
+attr = ".#metacubex-geo.goModules"
 
 [packages.microfetch]
 version = { source = "git", url = "https://github.com/NotAShelf/microfetch", unstable = { } }
@@ -226,6 +270,10 @@ strategy = "lockfile"
 version = { source = "github-release", repo = "maxmind/mm-geofeed-verifier" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "maxmind/mm-geofeed-verifier", rev = "{version}" }
+
+[packages.mm-geofeed-verifier.derive.vendorHash]
+strategy = "fod"
+attr = ".#mm-geofeed-verifier.goModules"
 
 [packages.mpv-danmaku]
 version = { source = "git", url = "https://github.com/moraxyc/mpv-danmaku.git", unstable = { stable = { source = "github-release", repo = "moraxyc/mpv-danmaku" } } }
@@ -288,6 +336,10 @@ strategy = "lockfile"
 version = { source = "git", url = "https://github.com/massiveits/opencode-go-cliproxyapi", unstable = { stable = { source = "manual", version = "0.0.0" } } }
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/massiveits/opencode-go-cliproxyapi", rev = "{version}" }
+
+[packages.opencode-go-cliproxyapi.derive.vendorHash]
+strategy = "fod"
+attr = ".#opencode-go-cliproxyapi.goModules"
 
 [packages.opencode-telegram-bot]
 version = { source = "github-release", repo = "grinev/opencode-telegram-bot" }
@@ -357,6 +409,10 @@ fetch = { type = "github", repo = "qmx/pi-plan-mode", rev = "v{version}" }
 version = { source = "github-tag", repo = "aliou/pi-processes", strip_prefix = "v" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "aliou/pi-processes", rev = "v{version}" }
+
+[packages.pi-processes.derive.pnpmDepsHash]
+strategy = "fod"
+attr = ".#pi-processes.pnpmDeps"
 
 [packages.pi-simplify]
 version = { source = "github-tag", repo = "MattDevy/pi-extensions", strip_prefix = "pi-simplify-v", filter = "^pi-simplify-v[0-9]+\\.[0-9]+\\.[0-9]+$" }
@@ -457,6 +513,10 @@ strategy = "lockfile"
 version = { source = "github-release", repo = "sinamics/ztnet" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "sinamics/ztnet", rev = "{version}" }
+
+[packages.ztnet.derive.ztmkworldVendorHash]
+strategy = "fod"
+attr = ".#ztnet.ztmkworld.goModules"
 
 [packages.ztnet.derive.npmDeps]
 kind = "npm-deps"
