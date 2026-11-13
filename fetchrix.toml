@@ -48,15 +48,6 @@ fetch = { type = "git", url = "https://github.com/Finb/bark-server.git", rev = "
 strategy = "fod"
 attr = ".#bark-server.goModules"
 
-[packages.boringssl-oqs]
-version = { source = "github-release", repo = "open-quantum-safe/boringssl" }
-transform = ["strip-v"]
-fetch = { type = "github", repo = "open-quantum-safe/boringssl", rev = "{version}" }
-
-[packages.boringssl-oqs.derive.vendorHash]
-strategy = "fod"
-attr = ".#boringssl-oqs.goModules"
-
 [packages.clash-nyanpasu]
 version = { source = "git", url = "https://github.com/libnyanpasu/clash-nyanpasu", unstable = { stable = { source = "github-release", repo = "libnyanpasu/clash-nyanpasu" } } }
 transform = ["strip-v"]
