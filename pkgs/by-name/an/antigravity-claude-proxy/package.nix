@@ -2,6 +2,7 @@
   lib,
   buildNpmPackage,
   importNpmLock,
+  makeWrapper,
   nodejs-slim,
   versionCheckHook,
 
@@ -38,6 +39,13 @@ buildNpmPackage (finalAttrs: {
   makeWrapperArgs = [
     "--prefix PATH : ${lib.makeBinPath [ finalAttrs.nodejs ]}"
   ];
+
+  # Run the server in the foreground, as a service manager expects, instead of
+  # going through the CLI's detached background mode.
+  postInstall = ''
+    makeWrapper ${lib.getExe finalAttrs.nodejs} $out/bin/antigravity-claude-proxy-server \
+      --add-flags "$out/lib/node_modules/${finalAttrs.pname}/src/index.js"
+  '';
 
   doInstallCheck = true;
   nativeInstallCheckInputs = [ versionCheckHook ];
