@@ -76,9 +76,9 @@ strategy = "fod"
 attr = ".#bark-server.goModules"
 
 [packages.clash-nyanpasu]
-version = { source = "git", url = "https://github.com/libnyanpasu/clash-nyanpasu", unstable = { stable = { source = "github-release", repo = "libnyanpasu/clash-nyanpasu" } } }
+version = { source = "github-release", repo = "libnyanpasu/clash-nyanpasu" }
 transform = ["strip-v"]
-fetch = { type = "git", url = "https://github.com/libnyanpasu/clash-nyanpasu", rev = "{version}" }
+fetch = { type = "github", repo = "libnyanpasu/clash-nyanpasu", rev = "{version}", submodules = true }
 
 [packages.clash-nyanpasu.prepare]
 steps = [{ type = "hook", run = ["./pkgs/by-name/cl/clash-nyanpasu/prepare.sh"] }]
