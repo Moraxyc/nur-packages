@@ -152,9 +152,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
       replace_args+=(--replace-fail ${lib.escapeShellArg src.url} ${lib.escapeShellArg "./builtin/vendor/${name}.js"})
     '') vendorSources.boa-utils}
     substituteInPlace backend/boa_utils/src/module/builtin.rs "''${replace_args[@]}"
-
-    substituteInPlace backend/Cargo.toml \
-      --replace-fail 'tray-icon = { git = "https://github.com/tauri-apps/tray-icon.git", rev = "34a3442" }' ""
   ''
   + lib.optionalString stdenv.hostPlatform.isLinux ''
     substituteInPlace $cargoDepsCopy/libappindicator-sys-*/src/lib.rs \
