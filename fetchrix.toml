@@ -376,9 +376,9 @@ transform = ["strip-v"]
 fetch = { type = "url", url = "https://github.com/AimesSoft/NipaPlay-Reload/releases/download/v{version}/NipaPlay-{version}-Linux-amd64.tar.gz" }
 
 [packages.nyanpasu-service]
-version = { source = "git", url = "https://github.com/libnyanpasu/nyanpasu-service.git", unstable = { stable = { source = "github-release", repo = "libnyanpasu/nyanpasu-service" } } }
+version = { source = "github-release", repo = "libnyanpasu/nyanpasu-service" }
 transform = ["strip-v"]
-fetch = { type = "git", url = "https://github.com/libnyanpasu/nyanpasu-service.git", rev = "{version}" }
+fetch = { type = "github", repo = "libnyanpasu/nyanpasu-service", rev = "{version}", submodules = true }
 
 [packages.nyanpasu-service.derive.cargoLock]
 kind = "cargo-vendor"

@@ -733,14 +733,16 @@
       "fingerprint": "sha256-9uEqj0SD5VQ2MS+9WTPJ6Ak8K1ljl4wOHXvMEHZhhv8="
     },
     "nyanpasu-service": {
-      "version": "2.0.4-unstable-2026-11-19",
-      "rawVersion": "c682264453314dc5d92a9694ab66b206885f14aa",
+      "version": "2.0.4",
+      "rawVersion": "v2.0.4",
       "date": "2026-11-19",
       "src": {
-        "fetcher": "git",
-        "url": "https://github.com/libnyanpasu/nyanpasu-service.git",
-        "rev": "c682264453314dc5d92a9694ab66b206885f14aa",
-        "hash": "sha256-X+gX/H5as1as+zu9lRKs1CekIEloa4cQ9W1B0+AiZoc="
+        "fetcher": "github",
+        "owner": "libnyanpasu",
+        "repo": "nyanpasu-service",
+        "rev": "v2.0.4",
+        "hash": "sha256-cJQk1Bzw2YoOWYSmJUd/qNdprUFdfaoH2KDFtvru93E=",
+        "fetchSubmodules": true
       },
       "derived": {
         "cargoLock": {
@@ -750,7 +752,7 @@
           }
         }
       },
-      "fingerprint": "sha256-Dr1WDPgou9rf7F0lFoENHBENBHyOHQFJ5JZhY3ZYXeM="
+      "fingerprint": "sha256-i65VmDb4uSPIlylK7TevBSqdVq6OdOEQsW8Rlpc1wYs="
     },
     "opencode-go-cliproxyapi": {
       "version": "0.0.0-unstable-2026-10-19",
