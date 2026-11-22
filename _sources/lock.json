@@ -390,21 +390,22 @@
       "fingerprint": "sha256-lfnqX4vQRPUUGtM14mp5JyUBdZNe4OIxfsfNY6Q8c3E="
     },
     "happydeliver": {
-      "version": "1.2.0",
-      "rawVersion": "v1.2.0",
+      "version": "1.3.0",
+      "rawVersion": "v1.3.0",
+      "date": "2026-11-21",
       "src": {
         "fetcher": "github",
         "owner": "happyDomain",
         "repo": "happydeliver",
-        "rev": "v1.2.0",
-        "hash": "sha256-VXkRDVHrRbU2TEl47jUhEmjXCkGzJgGYLKZBE/m9Ka8="
+        "rev": "v1.3.0",
+        "hash": "sha256-MPx7b2ajDjOgpmuqg//J0MovSpKlL8Vp5nb8sbd/A6E="
       },
       "derived": {
         "npmDeps": {
           "lockfile": "happydeliver/src/web/package-lock.json"
         },
         "vendorHash": {
-          "hash": "sha256-4mQ3/Hc+Ow2MYSNsnACopDhTblCs593Y4uTbtKRWWks="
+          "hash": "sha256-ESevYDvS+FueP6x5neSh5AJYu1YWB4tmk1KyNKY3/Vg="
         }
       },
       "fingerprint": "sha256-hyQ1jD39LNwSLQ85omJuvsUpbRv+Rc0TJKXAHH9Ng/g="
