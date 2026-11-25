@@ -473,24 +473,6 @@
       },
       "fingerprint": "sha256-4jCQslnqwTJoijYP2CKfwBZjAzj2BCR/xHV7lz2D//4="
     },
-    "horizon": {
-      "version": "0-unstable-2026-11-24",
-      "rawVersion": "b1493f0a96be19106dad1d75e6ac095c86003b13",
-      "date": "2026-11-24",
-      "src": {
-        "fetcher": "github",
-        "owner": "horizon-rust",
-        "repo": "horizon",
-        "rev": "b1493f0a96be19106dad1d75e6ac095c86003b13",
-        "hash": "sha256-fMjXHKOAqEw53vt4kqWNfZvFU3eCVKbKQA4GLC7OLEM="
-      },
-      "derived": {
-        "cargoLock": {
-          "lockfile": "horizon/src/Cargo.lock"
-        }
-      },
-      "fingerprint": "sha256-dYHv5Zymlnd0tNrosXuyeSs8oGkhZXGnmNxg5VPYOWo="
-    },
     "hysteria-realm-server": {
       "version": "1.1.0",
       "rawVersion": "v1.1.0",
@@ -1287,6 +1269,24 @@
         "hash": "sha256-5GH2HEcloEc6XooJ0YclLF7XS/0KGOVnaK8Nsy0mSUg="
       },
       "fingerprint": "sha256-LlZDgy3aTRdVrgeChch2g//DkgiJ9CkMgdG8JMG+RN0="
+    },
+    "sunrise": {
+      "version": "0-unstable-2026-11-25",
+      "rawVersion": "532366bfa6bf5eef82852ebdc04e36f69ded5083",
+      "date": "2026-11-25",
+      "src": {
+        "fetcher": "github",
+        "owner": "sunrise-org",
+        "repo": "sunrise",
+        "rev": "532366bfa6bf5eef82852ebdc04e36f69ded5083",
+        "hash": "sha256-BTNHAr2B4Vf5gPrdvv7XeGwedg2AZxMVdkB2dZijgCY="
+      },
+      "derived": {
+        "cargoLock": {
+          "lockfile": "sunrise/src/Cargo.lock"
+        }
+      },
+      "fingerprint": "sha256-xmuMzCqVHgWHlya5ngECxEOuRDatFs7PBLj9/bB+CNY="
     },
     "superpowers-skills": {
       "version": "0-unstable-2026-11-03",
