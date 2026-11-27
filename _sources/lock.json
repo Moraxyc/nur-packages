@@ -736,6 +736,16 @@
       },
       "fingerprint": "sha256-9uEqj0SD5VQ2MS+9WTPJ6Ak8K1ljl4wOHXvMEHZhhv8="
     },
+    "node-addon-api": {
+      "version": "8.9.2",
+      "rawVersion": "8.9.2",
+      "src": {
+        "fetcher": "url",
+        "url": "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.9.2.tgz",
+        "hash": "sha256-TNZWmFQbGaM/eY8dwlwCxu0cnXdJuIJLGhzOzdGXyOo="
+      },
+      "fingerprint": "sha256-LsWfb8z+5z1SAqXqQMnBx1geI/uFqBeNcU1pRnqrEa8="
+    },
     "nyanpasu-service": {
       "version": "2.0.4",
       "rawVersion": "v2.0.4",

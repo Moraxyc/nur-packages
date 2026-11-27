@@ -375,6 +375,10 @@ version = { source = "github-release", repo = "AimesSoft/NipaPlay-Reload", strip
 transform = ["strip-v"]
 fetch = { type = "url", url = "https://github.com/AimesSoft/NipaPlay-Reload/releases/download/v{version}/NipaPlay-{version}-Linux-amd64.tar.gz" }
 
+[packages.node-addon-api]
+version = { source = "npm", name = "node-addon-api" }
+fetch = { type = "url", url = "https://registry.npmjs.org/node-addon-api/-/node-addon-api-{version}.tgz" }
+
 [packages.nyanpasu-service]
 version = { source = "github-release", repo = "libnyanpasu/nyanpasu-service" }
 transform = ["strip-v"]
