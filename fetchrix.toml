@@ -204,6 +204,15 @@ version = { source = "github-release", repo = "P3TERX/GeoLite.mmdb" }
 transform = ["strip-v"]
 fetch = { type = "url", url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/{version}/GeoLite2-Country.mmdb" }
 
+[packages.git-cow]
+version = { source = "github-release", repo = "gabrielkoerich/git-cow", strip_prefix = "v" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "gabrielkoerich/git-cow", rev = "v{version}" }
+
+[packages.git-cow.derive.cargoLock]
+kind = "cargo-vendor"
+strategy = "lockfile"
+
 [packages.git-mcp-server]
 version = { source = "github-tag", repo = "cyanheads/git-mcp-server", strip_prefix = "v" }
 transform = ["strip-v"]
