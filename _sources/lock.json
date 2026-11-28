@@ -922,6 +922,24 @@
       },
       "fingerprint": "sha256-axQY4oyIkncZR91dnj1w5YeNzJccStNBGi+ao7r52u0="
     },
+    "pi-btw": {
+      "version": "0.8.1",
+      "rawVersion": "0.8.1",
+      "date": "2026-11-03",
+      "src": {
+        "fetcher": "github",
+        "owner": "dbachelder",
+        "repo": "pi-btw",
+        "rev": "v0.8.1",
+        "hash": "sha256-9jRpvNJEshd+p9+KDVzoPPtnVTvca71qFKd8fvF1DbI="
+      },
+      "derived": {
+        "npmDeps": {
+          "lockfile": "pi-btw/src/package-lock.json"
+        }
+      },
+      "fingerprint": "sha256-7TRVGFd6Vejr3d7TS2AQwKEx+1vUVrILPsvHNd3hqkk="
+    },
     "pi-cc-extensions": {
       "version": "1.0.23",
       "rawVersion": "v1.0.23",
