@@ -513,6 +513,15 @@ version = { source = "github-release", repo = "dimk90/pi-context-view" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "dimk90/pi-context-view", rev = "{version}" }
 
+[packages.pi-copy-message]
+version = { source = "github-release", repo = "fitchmultz/pi-copy-message", strip_prefix = "v" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "fitchmultz/pi-copy-message", rev = "v{version}" }
+
+[packages.pi-copy-message.derive.npmDeps]
+kind = "npm-deps"
+strategy = "lockfile"
+
 [packages.pi-emphasis]
 version = { source = "git", url = "https://github.com/johnlindquist/pi-emphasis.git", unstable = { } }
 transform = ["strip-v"]

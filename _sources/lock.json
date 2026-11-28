@@ -1006,6 +1006,24 @@
       },
       "fingerprint": "sha256-2iQIwkuhuI6JIwGrLvC4r49EzdZp07VUvbXFvxjHU3o="
     },
+    "pi-copy-message": {
+      "version": "4.0.16",
+      "rawVersion": "4.0.16",
+      "date": "2026-11-20",
+      "src": {
+        "fetcher": "github",
+        "owner": "fitchmultz",
+        "repo": "pi-copy-message",
+        "rev": "v4.0.16",
+        "hash": "sha256-ZMmROFXDMqjvQXDk+IwlHmCHbvMhuvb/X83ZPLL47F4="
+      },
+      "derived": {
+        "npmDeps": {
+          "lockfile": "pi-copy-message/src/package-lock.json"
+        }
+      },
+      "fingerprint": "sha256-cu2qVBLL3Kc3GbwPgBzaU8KXuhUgK7QelpYuLZO3WAM="
+    },
     "pi-emphasis": {
       "version": "0-unstable-2026-11-16",
       "rawVersion": "f884b736c489944ee778ab951c7f78580f137b02",
