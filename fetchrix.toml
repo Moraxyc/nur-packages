@@ -535,6 +535,20 @@ artifacts."package-lock.json" = { type = "file", path = "package-lock.json" }
 version = { source = "npm", name = "pi-fast-resume" }
 fetch = { type = "tarball", url = "https://registry.npmjs.org/pi-fast-resume/-/pi-fast-resume-{version}.tgz" }
 
+[packages.pi-fff]
+version = { source = "github-tag", repo = "dmtrKovalenko/fff", strip_prefix = "v", filter = "^v[0-9]+\\.[0-9]+\\.[0-9]+$" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "dmtrKovalenko/fff", rev = "v{version}" }
+
+[packages.pi-fff.derive.cargoLock]
+kind = "cargo-vendor"
+strategy = "lockfile"
+
+[packages.pi-fff.derive.npmDeps]
+kind = "npm-deps"
+strategy = "lockfile"
+sub_dir = "packages"
+
 [packages.pi-live-terminal]
 version = { source = "git", url = "https://github.com/tanishqkancharla/pi-live-terminal.git", unstable = { stable = { source = "github-tag", repo = "tanishqkancharla/pi-live-terminal", strip_prefix = "v" } } }
 transform = ["strip-v"]

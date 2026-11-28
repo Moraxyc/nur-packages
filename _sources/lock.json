@@ -1050,6 +1050,27 @@
       },
       "fingerprint": "sha256-xc8SIZrG+OX4SmJOKqd31LTm12XcHc1WBwbeMzeHc2M="
     },
+    "pi-fff": {
+      "version": "0.11.0",
+      "rawVersion": "0.11.0",
+      "date": "2026-09-21",
+      "src": {
+        "fetcher": "github",
+        "owner": "dmtrKovalenko",
+        "repo": "fff",
+        "rev": "v0.11.0",
+        "hash": "sha256-GSjvvdLkuezFUrHqiSeePa64VRb3tabOKZNqEE5XSAw="
+      },
+      "derived": {
+        "cargoLock": {
+          "lockfile": "pi-fff/src/Cargo.lock"
+        },
+        "npmDeps": {
+          "lockfile": "pi-fff/src/packages/package-lock.json"
+        }
+      },
+      "fingerprint": "sha256-kruQw2UPHdnZbSGPoTEPcZgFh+kwrp8wfH7Swa2PUw8="
+    },
     "pi-live-terminal": {
       "version": "0.2.4-unstable-2026-08-30",
       "rawVersion": "43949547ee4c07ff8cc7bfe88d67214d9ef05021",
