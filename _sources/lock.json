@@ -1040,6 +1040,16 @@
       },
       "fingerprint": "sha256-4Ecvhw7Pt+v0Oj0csNO+uHmuIv+ckIaaoYjlDpnrEvA="
     },
+    "pi-fast-resume": {
+      "version": "1.4.19",
+      "rawVersion": "1.4.19",
+      "src": {
+        "fetcher": "tarball",
+        "url": "https://registry.npmjs.org/pi-fast-resume/-/pi-fast-resume-1.4.19.tgz",
+        "hash": "sha256-MwcorMfVSQ2JguGHAjt0DuxELjsMZFw4mvgaoWQXQv8="
+      },
+      "fingerprint": "sha256-xc8SIZrG+OX4SmJOKqd31LTm12XcHc1WBwbeMzeHc2M="
+    },
     "pi-live-terminal": {
       "version": "0.2.4-unstable-2026-08-30",
       "rawVersion": "43949547ee4c07ff8cc7bfe88d67214d9ef05021",

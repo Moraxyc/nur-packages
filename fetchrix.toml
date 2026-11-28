@@ -531,6 +531,10 @@ fetch = { type = "github", repo = "johnlindquist/pi-emphasis", rev = "{version}"
 steps = [{ type = "npm-lock", args = ["--legacy-peer-deps"] }]
 artifacts."package-lock.json" = { type = "file", path = "package-lock.json" }
 
+[packages.pi-fast-resume]
+version = { source = "npm", name = "pi-fast-resume" }
+fetch = { type = "tarball", url = "https://registry.npmjs.org/pi-fast-resume/-/pi-fast-resume-{version}.tgz" }
+
 [packages.pi-live-terminal]
 version = { source = "git", url = "https://github.com/tanishqkancharla/pi-live-terminal.git", unstable = { stable = { source = "github-tag", repo = "tanishqkancharla/pi-live-terminal", strip_prefix = "v" } } }
 transform = ["strip-v"]
